@@ -6,7 +6,7 @@
     <title>Directorio de Dispensarios Cannabis Chile | Dra. Catalina Barrientos</title>
 
     <meta name="description" content="Directorio nacional de dispensarios de cannabis medicinal en Chile, seguro y regulado. Encuentra tu dispensario y agenda tu consulta médica con la Dra. Catalina Barrientos.">
-    <meta name="keywords" content="cannabis medicinal chile, dispensarios cannabis, receta cannabis, doctora medicina cannabica, Dra Catalina Barrientos, cannabis receta medica, fundación cannabimed">
+    <meta name="keywords" content="cannabis medicinal chile, dispensarios cannabis, receta cannabis, doctora medicina cannabica, Dra Catalina Barrientos, cannabis receta medica">
     <meta name="author" content="Dra. Catalina Paz Barrientos Cerda">
 
     <meta property="og:type" content="website">
@@ -16,9 +16,7 @@
     <meta property="og:image" content="https://github.com/catalinabtos/dispensario-cannabis/blob/main/cultivation-cannabis-natural-environment-created-with-help-generative-ai-technology.jpg?raw=true"> 
 
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://www.dispensariocannabis.cl/">
     <meta property="twitter:title" content="Directorio de Dispensarios de Cannabis Chile">
-    <meta property="twitter:description" content="Encuentra organizaciones y dispensarios seguros a lo largo de Chile. Directorio creado para pacientes de medicina cannábica.">
     <meta property="twitter:image" content="https://github.com/catalinabtos/dispensario-cannabis/blob/main/cultivation-cannabis-natural-environment-created-with-help-generative-ai-technology.jpg?raw=true">
 
     <link rel="icon" href="https://raw.githubusercontent.com/twitter/twemoji/master/assets/72x72/1f33f.png" type="image/png">
@@ -39,133 +37,53 @@
             --sombra-fuerte: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
         }
         
-        body {
-            font-family: 'Open Sans', sans-serif;
-            line-height: 1.7;
-            color: var(--texto-oscuro);
-            margin: 0;
-            padding: 0;
-            background-color: var(--fondo-gris);
-        }
+        body { font-family: 'Open Sans', sans-serif; line-height: 1.7; color: var(--texto-oscuro); margin: 0; padding: 0; background-color: var(--fondo-gris); }
+        h1, h2, h3 { font-family: 'Montserrat', sans-serif; font-weight: 700; color: var(--verde-principal); }
 
-        h1, h2, h3 {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
-            color: var(--verde-principal);
-        }
-
-        /* --- HERO BANNER CON ENLACE BLOB/RAW INFALIBLE --- */
+        /* HERO BANNER */
         header {
             background-image: linear-gradient(rgba(27, 94, 32, 0.85), rgba(27, 94, 32, 0.85)), url('https://github.com/catalinabtos/dispensario-cannabis/blob/main/cultivation-cannabis-natural-environment-created-with-help-generative-ai-technology.jpg?raw=true');
-            background-size: cover;
-            background-position: center;
-            color: white;
-            text-align: center;
-            padding: 4rem 1rem 5rem 1rem; 
-            box-shadow: var(--sombra-suave);
+            background-size: cover; background-position: center; color: white; text-align: center; padding: 4rem 1rem 5rem 1rem; box-shadow: var(--sombra-suave);
         }
-
         header h1 { margin: 0; font-size: 3rem; color: white; text-shadow: 0 2px 4px rgba(0,0,0,0.3); }
         header p { margin: 15px 0 25px; font-size: 1.25rem; opacity: 0.95; font-weight: 400; text-shadow: 0 1px 2px rgba(0,0,0,0.3); }
 
-        .container {
-            max-width: 1100px;
-            margin: -3rem auto 2rem; 
-            padding: 3rem;
-            background-color: white;
-            box-shadow: var(--sombra-suave);
-            border-radius: 12px;
-            position: relative;
-        }
+        .container { max-width: 1100px; margin: -3rem auto 2rem; padding: 3rem; background-color: white; box-shadow: var(--sombra-suave); border-radius: 12px; position: relative; }
 
-        /* Perfil con Foto */
-        .perfil-medico {
-            background-color: var(--verde-claro);
-            padding: 2.5rem;
-            border-radius: 12px;
-            margin-bottom: 2.5rem;
-            border-left: 6px solid var(--verde-principal);
-            display: flex;
-            align-items: center;
-            gap: 2rem;
-        }
-
-        .perfil-foto {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 4px solid white;
-            box-shadow: var(--sombra-suave);
-            flex-shrink: 0;
-            background-color: white; /* Por si tarda 1 segundo en cargar, no se vea feo */
-        }
-
-        .perfil-texto {
-            flex-grow: 1;
-        }
-
+        /* PERFIL MEDICO */
+        .perfil-medico { background-color: var(--verde-claro); padding: 2.5rem; border-radius: 12px; margin-bottom: 2.5rem; border-left: 6px solid var(--verde-principal); display: flex; align-items: center; gap: 2rem; }
+        .perfil-foto { width: 150px; height: 150px; border-radius: 50%; object-fit: cover; border: 4px solid white; box-shadow: var(--sombra-suave); flex-shrink: 0; background-color: #fff; }
+        .perfil-texto { flex-grow: 1; }
         .perfil-texto h2 { margin-top: 0; }
         .perfil-texto p { margin-bottom: 0.5rem; }
 
-        .invitacion-dispensarios {
-            background-color: #fefcbf; 
-            padding: 2rem;
-            border-radius: 8px;
-            margin-bottom: 3rem;
-            text-align: center;
-            border: 1px solid #ecc94b;
-        }
+        .invitacion-dispensarios { background-color: #fefcbf; padding: 2rem; border-radius: 8px; margin-bottom: 3rem; text-align: center; border: 1px solid #ecc94b; }
 
-        /* Estilos de Filtros */
+        /* FILTROS */
         .filtros-container { display: flex; gap: 15px; margin-bottom: 1rem; }
-        .buscador, .filtro-region {
-            padding: 14px; font-size: 16px; border: 2px solid #e2e8f0;
-            border-radius: 8px; box-sizing: border-box; font-family: 'Open Sans', sans-serif;
-            transition: border-color 0.3s ease;
-        }
+        .buscador, .filtro-region { padding: 14px; font-size: 16px; border: 2px solid #e2e8f0; border-radius: 8px; box-sizing: border-box; font-family: 'Open Sans', sans-serif; transition: border-color 0.3s ease; }
         .buscador { flex: 2; } 
         .filtro-region { flex: 1; cursor: pointer; background-color: white; }
         .buscador:focus, .filtro-region:focus { outline: none; border-color: var(--verde-principal); }
 
-        /* Estilos de Tabla */
-        .table-container {
-            max-height: 500px; overflow-y: auto; border: 1px solid #e2e8f0;
-            border-radius: 8px; margin-bottom: 3rem; box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-        }
+        /* TABLA */
+        .table-container { max-height: 500px; overflow-y: auto; border: 1px solid #e2e8f0; border-radius: 8px; margin-bottom: 3rem; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
         table { width: 100%; border-collapse: collapse; }
         th, td { padding: 16px; text-align: left; border-bottom: 1px solid #edf2f7; }
-        th { 
-            background-color: var(--verde-principal); color: white; position: sticky; 
-            top: 0; z-index: 1; cursor: pointer; user-select: none;
-            font-family: 'Montserrat', sans-serif; font-size: 0.95rem; letter-spacing: 0.5px;
-        }
+        th { background-color: var(--verde-principal); color: white; position: sticky; top: 0; z-index: 1; cursor: pointer; user-select: none; font-family: 'Montserrat', sans-serif; font-size: 0.95rem; letter-spacing: 0.5px; }
         th:hover { background-color: var(--verde-hover); }
         tr:hover { background-color: #f7fafc; }
         
-        /* Etiquetas de Regiones (Tags) */
-        .tag {
-            padding: 6px 12px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            display: inline-block;
-            white-space: nowrap;
-        }
-        
+        /* TAGS REGIONES */
+        .tag { padding: 6px 12px; border-radius: 20px; font-size: 0.85rem; font-weight: 600; display: inline-block; white-space: nowrap; }
         .tag-rm { background-color: #e0f2fe; color: #0284c7; } 
         .tag-valpo { background-color: #f3e8ff; color: #9333ea; } 
         .tag-sur { background-color: #dcfce7; color: #166534; } 
         .tag-norte { background-color: #ffedd5; color: #c2410c; } 
         .tag-default { background-color: #f1f5f9; color: #475569; } 
 
-        /* Estilos de Botones */
-        .btn {
-            display: inline-block; background-color: var(--verde-principal); color: white;
-            padding: 12px 24px; text-decoration: none; border-radius: 8px; font-weight: 600;
-            font-family: 'Montserrat', sans-serif; margin: 8px; transition: all 0.3s ease;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1); border: none; cursor: pointer; text-align: center;
-        }
+        /* BOTONES */
+        .btn { display: inline-block; background-color: var(--verde-principal); color: white; padding: 12px 24px; text-decoration: none; border-radius: 8px; font-weight: 600; font-family: 'Montserrat', sans-serif; margin: 8px; transition: all 0.3s ease; box-shadow: 0 2px 4px rgba(0,0,0,0.1); border: none; cursor: pointer; text-align: center; }
         .btn:hover { background-color: var(--verde-hover); transform: translateY(-2px); box-shadow: 0 4px 6px rgba(0,0,0,0.15); }
         .btn-whatsapp { background-color: #25D366; }
         .btn-whatsapp:hover { background-color: #128C7E; }
@@ -175,21 +93,11 @@
         .btn-header:hover { background-color: #f1f5f9; color: var(--verde-hover); }
         .btn-sm { padding: 8px 14px; font-size: 0.85rem; margin: 0; }
 
-        /* Estilos del Pop-up (Modal) */
-        .modal-overlay {
-            display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background-color: rgba(0, 0, 0, 0.6); z-index: 1000; justify-content: center;
-            align-items: center; padding: 1rem; box-sizing: border-box; backdrop-filter: blur(3px); 
-        }
-        .modal-content {
-            background-color: white; padding: 2.5rem; border-radius: 12px; max-width: 500px;
-            width: 100%; box-shadow: var(--sombra-fuerte); position: relative; animation: deslizarArriba 0.3s ease-out;
-        }
+        /* POP-UP MODAL */
+        .modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.6); z-index: 1000; justify-content: center; align-items: center; padding: 1rem; box-sizing: border-box; backdrop-filter: blur(3px); }
+        .modal-content { background-color: white; padding: 2.5rem; border-radius: 12px; max-width: 500px; width: 100%; box-shadow: var(--sombra-fuerte); position: relative; animation: deslizarArriba 0.3s ease-out; }
         @keyframes deslizarArriba { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
-        .btn-cerrar-modal {
-            position: absolute; top: 15px; right: 15px; background: none; border: none;
-            font-size: 1.5rem; color: #a0aec0; cursor: pointer; transition: color 0.2s;
-        }
+        .btn-cerrar-modal { position: absolute; top: 15px; right: 15px; background: none; border: none; font-size: 1.5rem; color: #a0aec0; cursor: pointer; transition: color 0.2s; }
         .btn-cerrar-modal:hover { color: #4a5568; }
         .modal-header h3 { margin-top: 0; margin-bottom: 0.5rem; font-size: 1.8rem; }
         .modal-region { margin-bottom: 1.5rem; display: inline-block; }
@@ -252,7 +160,6 @@
             
             <div class="filtros-container">
                 <input type="text" id="buscador" class="buscador" placeholder="Buscar por nombre, ciudad o palabra clave...">
-                
                 <select id="filtroRegion" class="filtro-region">
                     <option value="">Todas las Regiones</option>
                     <option value="Región de Valparaíso">Región de Valparaíso</option>
@@ -453,18 +360,15 @@
         <div id="modalDispensario" class="modal-overlay">
             <div class="modal-content">
                 <button class="btn-cerrar-modal" onclick="cerrarModal()">&times;</button>
-                
                 <div class="modal-header">
-                    <h3 id="modalNombre">Nombre del Dispensario</h3>
+                    <h3 id="modalNombre">Nombre</h3>
                     <span id="modalRegion" class="modal-region">📍 Ubicación</span>
                 </div>
-                
                 <div class="modal-body">
                     <p><strong>📞 Contacto:</strong> <span id="modalTel">-</span></p>
                     <p><strong>✉️ Correo:</strong> <span id="modalCorreo">-</span></p>
                     <p><strong>🌐 Enlace:</strong> <span id="modalWeb">-</span></p>
                 </div>
-
                 <div class="modal-footer">
                     <button class="btn btn-secundario" style="width: 100%;" onclick="irAResenas()">⭐ Calificar a este dispensario</button>
                 </div>
@@ -473,17 +377,15 @@
 
         <section id="seccion-resenas" style="margin-top: 4rem;">
             <h2>Evaluaciones y Recomendaciones</h2>
-            <p>¿Conoces algún dispensario? Deja tu calificación de 1 a 5 estrellas y ayuda a otros pacientes a tomar decisiones informadas.</p>
-            
-            <div id="espacio-para-widget-comentarios" style="background: white; padding: 2rem; text-align: center; border: 1px dashed #cbd5e0; border-radius: 12px; margin-top: 1rem;">
+            <p>¿Conoces algún dispensario? Deja tu calificación y ayuda a otros pacientes a tomar decisiones informadas.</p>
+            <div style="background: white; padding: 2rem; text-align: center; border: 1px dashed #cbd5e0; border-radius: 12px; margin-top: 1rem;">
                 <div class="powr-comments" id="ab9f7a1e_1773195854"></div>
             </div>
         </section>
 
         <section class="seccion-agendar">
             <h2>¿Necesitas iniciar tu tratamiento?</h2>
-            <p>Agenda una consulta de medicina cannábica para una evaluación personalizada y prescripción segura.</p>
-            <br>
+            <p>Agenda una consulta de medicina cannábica para una evaluación personalizada y prescripción segura.</p><br>
             <a href="https://beta-sacmed.novacaribe.com/ReservaOnline/11302" class="btn" target="_blank">🗓️ Agendar Hora (Link Web)</a>
             <a href="https://wa.me/56994830491?text=Hola,%20vengo%20del%20directorio%20y%20quiero%20agendar%20una%20hora." class="btn btn-whatsapp" target="_blank">💬 Agendar por WhatsApp</a>
         </section>
@@ -507,15 +409,9 @@
             filas.forEach(function(fila) {
                 let textoFila = fila.querySelector('.dato-nombre').textContent.toLowerCase();
                 let regionFila = fila.querySelector('.dato-region').textContent.toLowerCase();
-
                 let coincideTexto = textoFila.includes(textoBuscado) || regionFila.includes(textoBuscado);
                 let coincideRegion = regionSeleccionada === "" || regionFila.includes(regionSeleccionada);
-
-                if (coincideTexto && coincideRegion) {
-                    fila.style.display = '';
-                } else {
-                    fila.style.display = 'none';
-                }
+                fila.style.display = (coincideTexto && coincideRegion) ? '' : 'none';
             });
         }
 
@@ -524,63 +420,35 @@
 
         let ordenAscendente = true;
         function ordenarTabla(columna) {
-            const tabla = document.getElementById("tablaDispensarios");
-            const tbody = tabla.querySelector("tbody");
+            const tbody = document.querySelector("#tablaDispensarios tbody");
             const arrayFilas = Array.from(tbody.querySelectorAll("tr"));
-
             arrayFilas.sort((a, b) => {
-                let textoA = a.querySelectorAll("td")[columna].textContent.trim().toLowerCase();
-                let textoB = b.querySelectorAll("td")[columna].textContent.trim().toLowerCase();
-
-                if (textoA < textoB) return ordenAscendente ? -1 : 1;
-                if (textoA > textoB) return ordenAscendente ? 1 : -1;
+                let textA = a.querySelectorAll("td")[columna].textContent.trim().toLowerCase();
+                let textB = b.querySelectorAll("td")[columna].textContent.trim().toLowerCase();
+                if (textA < textB) return ordenAscendente ? -1 : 1;
+                if (textA > textB) return ordenAscendente ? 1 : -1;
                 return 0;
             });
-
             arrayFilas.forEach(fila => tbody.appendChild(fila));
             ordenAscendente = !ordenAscendente;
         }
 
         const modal = document.getElementById("modalDispensario");
-
-        function abrirModal(botonClickeado) {
-            const fila = botonClickeado.closest('tr');
-            const nombre = fila.querySelector('.dato-nombre').innerHTML;
-            const region = fila.querySelector('.dato-region').innerHTML;
-            const tel = fila.querySelector('.dato-tel').innerHTML;
-            const correo = fila.querySelector('.dato-correo').innerHTML;
-            const web = fila.querySelector('.dato-web').innerHTML;
-
-            document.getElementById('modalNombre').innerHTML = nombre;
-            document.getElementById('modalRegion').innerHTML = region; 
-            document.getElementById('modalTel').innerHTML = tel;
-            document.getElementById('modalCorreo').innerHTML = correo;
-            document.getElementById('modalWeb').innerHTML = web;
-
+        function abrirModal(btn) {
+            const f = btn.closest('tr');
+            document.getElementById('modalNombre').innerHTML = f.querySelector('.dato-nombre').innerHTML;
+            document.getElementById('modalRegion').innerHTML = f.querySelector('.dato-region').innerHTML; 
+            document.getElementById('modalTel').innerHTML = f.querySelector('.dato-tel').innerHTML;
+            document.getElementById('modalCorreo').innerHTML = f.querySelector('.dato-correo').innerHTML;
+            document.getElementById('modalWeb').innerHTML = f.querySelector('.dato-web').innerHTML;
             modal.style.display = "flex";
             document.body.style.overflow = "hidden";
         }
 
-        function cerrarModal() {
-            modal.style.display = "none";
-            document.body.style.overflow = "auto";
-        }
-
-        window.onclick = function(event) {
-            if (event.target == modal) {
-                cerrarModal();
-            }
-        }
-
-        function irAResenas() {
-            cerrarModal(); 
-            document.getElementById('seccion-resenas').scrollIntoView({ 
-                behavior: 'smooth' 
-            });
-        }
+        function cerrarModal() { modal.style.display = "none"; document.body.style.overflow = "auto"; }
+        window.onclick = function(e) { if (e.target == modal) cerrarModal(); }
+        function irAResenas() { cerrarModal(); document.getElementById('seccion-resenas').scrollIntoView({ behavior: 'smooth' }); }
     </script>
-
     <script src="https://www.powr.io/powr.js?platform=html"></script>
-
 </body>
 </html>

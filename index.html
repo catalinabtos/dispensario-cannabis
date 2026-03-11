@@ -23,75 +23,110 @@
 
     <link rel="icon" href="https://raw.githubusercontent.com/twitter/twemoji/master/assets/72x72/1f33f.png" type="image/png">
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+
     <style>
         :root {
-            --verde-principal: #2e7d32;
+            /* Paleta de colores mejorada */
+            --verde-principal: #1b5e20;
+            --verde-hover: #2e7d32;
             --verde-claro: #e8f5e9;
-            --texto-oscuro: #333;
-            --fondo-gris: #f5f5f5;
+            --texto-oscuro: #2d3748;
+            --texto-suave: #4a5568;
+            --fondo-gris: #f9fafb;
+            --sombra-suave: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
         }
         
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
+            font-family: 'Open Sans', sans-serif;
+            line-height: 1.7;
             color: var(--texto-oscuro);
             margin: 0;
             padding: 0;
             background-color: var(--fondo-gris);
         }
 
+        /* Títulos usan Montserrat */
+        h1, h2, h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            color: var(--verde-principal);
+        }
+
         header {
             background-color: var(--verde-principal);
             color: white;
             text-align: center;
-            padding: 2rem 1rem;
+            padding: 3rem 1rem;
+            box-shadow: var(--sombra-suave);
         }
 
-        header h1 { margin: 0; font-size: 2.5rem; }
-        header p { margin: 10px 0 0; font-size: 1.2rem; opacity: 0.9; }
+        header h1 { 
+            margin: 0; 
+            font-size: 2.8rem; 
+            color: white;
+        }
+        
+        header p { 
+            margin: 15px 0 0; 
+            font-size: 1.2rem; 
+            opacity: 0.9; 
+            font-weight: 400;
+        }
 
         .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 2rem;
+            max-width: 1100px;
+            margin: -2rem auto 2rem; /* El margen negativo lo sube un poco sobre el header */
+            padding: 3rem;
             background-color: white;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            box-shadow: var(--sombra-suave);
+            border-radius: 12px;
+            position: relative;
         }
 
         .perfil-medico {
             background-color: var(--verde-claro);
-            padding: 1.5rem;
+            padding: 2rem;
             border-radius: 8px;
-            margin-bottom: 2rem;
-            border-left: 5px solid var(--verde-principal);
+            margin-bottom: 2.5rem;
+            border-left: 6px solid var(--verde-principal);
         }
 
         .invitacion-dispensarios {
-            background-color: #fff9c4; /* Un tono amarillo muy suave para destacar */
-            padding: 1.5rem;
+            background-color: #fefcbf; 
+            padding: 2rem;
             border-radius: 8px;
-            margin-bottom: 2rem;
+            margin-bottom: 3rem;
             text-align: center;
-            border: 1px solid #fbc02d;
+            border: 1px solid #ecc94b;
         }
 
         .buscador {
             width: 100%;
-            padding: 12px;
+            padding: 14px;
             font-size: 16px;
             margin-bottom: 1rem;
-            border: 1px solid #ccc;
-            border-radius: 4px;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
             box-sizing: border-box;
+            font-family: 'Open Sans', sans-serif;
+            transition: border-color 0.3s ease;
         }
 
-        /* Contenedor para hacer la tabla scrolleable */
+        .buscador:focus {
+            outline: none;
+            border-color: var(--verde-principal);
+        }
+
         .table-container {
-            max-height: 400px; /* Limita el alto a unos 6 dispensarios aprox */
-            overflow-y: auto;  /* Agrega el scroll vertical */
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            margin-bottom: 2rem;
+            max-height: 500px; 
+            overflow-y: auto;  
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            margin-bottom: 3rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
         }
 
         table {
@@ -100,81 +135,104 @@
         }
 
         th, td {
-            padding: 12px;
+            padding: 14px 16px;
             text-align: left;
-            border-bottom: 1px solid #ddd;
+            border-bottom: 1px solid #edf2f7;
         }
 
         th { 
             background-color: var(--verde-principal); 
             color: white; 
-            position: sticky; /* Hace que el encabezado no se mueva al hacer scroll */
+            position: sticky; 
             top: 0; 
             z-index: 1;
-            cursor: pointer; /* Cambia el cursor para indicar que es clickeable */
+            cursor: pointer; 
             user-select: none;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.95rem;
+            letter-spacing: 0.5px;
         }
         
         th:hover {
-            background-color: #1b5e20;
+            background-color: var(--verde-hover);
         }
 
-        tr:hover { background-color: #f1f1f1; }
+        tr:hover { background-color: #f7fafc; }
+        
+        td a {
+            color: var(--verde-principal);
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        td a:hover {
+            text-decoration: underline;
+        }
 
         .btn {
             display: inline-block;
             background-color: var(--verde-principal);
             color: white;
-            padding: 10px 20px;
+            padding: 12px 24px;
             text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
-            margin: 5px;
-            transition: background 0.3s;
+            border-radius: 8px;
+            font-weight: 600;
+            font-family: 'Montserrat', sans-serif;
+            margin: 8px;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
 
-        .btn:hover { background-color: #1b5e20; }
+        .btn:hover { 
+            background-color: var(--verde-hover); 
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.15);
+        }
         
         .btn-whatsapp { background-color: #25D366; }
         .btn-whatsapp:hover { background-color: #128C7E; }
         
-        .btn-secundario { background-color: #fbc02d; color: #333;}
-        .btn-secundario:hover { background-color: #f9a825; }
+        .btn-secundario { background-color: #d69e2e; color: white;}
+        .btn-secundario:hover { background-color: #b7791f; }
 
         .seccion-agendar {
             text-align: center;
-            padding: 2rem;
-            border-top: 2px dashed #ccc;
-            margin-top: 2rem;
+            padding: 3rem 2rem;
+            background-color: #f7fafc;
+            border-radius: 12px;
+            margin-top: 3rem;
         }
 
         footer {
             text-align: center;
-            padding: 1.5rem;
-            background-color: #333;
-            color: white;
+            padding: 2rem;
+            background-color: #1a202c;
+            color: #e2e8f0;
             font-size: 0.9rem;
         }
 
         @media (max-width: 768px) {
+            .container { padding: 1.5rem; margin-top: 0; border-radius: 0; }
+            header h1 { font-size: 2rem; }
             table, thead, tbody, th, td, tr { display: block; }
             th { display: none; }
-            .table-container { max-height: 600px; }
+            .table-container { max-height: 600px; border: none; box-shadow: none;}
             td { 
                 position: relative; 
                 padding-left: 50%; 
-                border-bottom: none;
+                border-bottom: 1px solid #edf2f7;
             }
             td:before { 
                 position: absolute; 
-                left: 6px; 
+                left: 10px; 
                 width: 45%; 
                 padding-right: 10px; 
-                font-weight: bold; 
+                font-weight: 600; 
+                color: var(--texto-suave);
                 content: attr(data-label);
             }
-            tr { border: 1px solid #ccc; margin-bottom: 10px; border-radius: 5px;}
-            .btn { display: block; width: 80%; margin: 10px auto; }
+            tr { border: 1px solid #e2e8f0; margin-bottom: 15px; border-radius: 8px; background-color: white;}
+            .btn { display: block; width: 85%; margin: 15px auto; }
         }
     </style>
 </head>
@@ -197,6 +255,7 @@
         <section class="invitacion-dispensarios">
             <h2>¿Tienes un dispensario o quieres actualizar datos?</h2>
             <p>Si eres parte de un dispensario seguro que no está en la lista, o si notas que la información de tu organización está desactualizada, ¡escríbeme! Ayudémonos a mantener este directorio como una herramienta confiable para los pacientes.</p>
+            <br>
             <a href="mailto:Cbarrientoscerda@gmail.com?subject=Directorio%20Dispensarios%20-%20Actualizar%20Info" class="btn btn-secundario">✉️ Enviar información del dispensario</a>
         </section>
 
@@ -204,7 +263,7 @@
             <h2>Buscador de Dispensarios</h2>
             <input type="text" id="buscador" class="buscador" placeholder="Buscar por nombre, ciudad o región...">
 
-            <p style="font-size: 0.9rem; color: #666; margin-top: -5px;"><em>💡 Haz clic en los títulos de la tabla para ordenar alfabéticamente (A-Z).</em></p>
+            <p style="font-size: 0.9rem; color: var(--texto-suave); margin-top: -5px; margin-bottom: 15px;"><em>💡 Haz clic en los títulos de la tabla para ordenar alfabéticamente (A-Z).</em></p>
 
             <div class="table-container">
                 <table id="tablaDispensarios">
@@ -370,11 +429,11 @@
             </div>
         </section>
 
-        <section style="margin-top: 3rem;">
+        <section style="margin-top: 4rem;">
             <h2>Evaluaciones y Recomendaciones</h2>
             <p>¿Conoces algún dispensario? Deja tu calificación de 1 a 5 estrellas y ayuda a otros pacientes a tomar decisiones informadas.</p>
             
-            <div id="espacio-para-widget-comentarios" style="background: #f9f9f9; padding: 2rem; text-align: center; border: 1px dashed #ccc; border-radius: 8px;">
+            <div id="espacio-para-widget-comentarios" style="background: white; padding: 2rem; text-align: center; border: 1px dashed #cbd5e0; border-radius: 12px; margin-top: 1rem;">
                 <div class="powr-comments" id="ab9f7a1e_1773195854"></div><script src="https://www.powr.io/powr.js?platform=html"></script>
             </div>
         </section>
@@ -382,7 +441,7 @@
         <section class="seccion-agendar">
             <h2>¿Necesitas iniciar tu tratamiento?</h2>
             <p>Agenda una consulta de medicina cannábica para una evaluación personalizada y prescripción segura.</p>
-            
+            <br>
             <a href="https://beta-sacmed.novacaribe.com/ReservaOnline/11302" class="btn" target="_blank">🗓️ Agendar Hora (Link Web)</a>
             <a href="https://wa.me/56994830491?text=Hola,%20vengo%20del%20directorio%20y%20quiero%20agendar%20una%20hora." class="btn btn-whatsapp" target="_blank">💬 Agendar por WhatsApp</a>
         </section>
@@ -426,10 +485,7 @@
                 return 0;
             });
 
-            // Re-agrega las filas ordenadas al cuerpo de la tabla
             filas.forEach(fila => tbody.appendChild(fila));
-
-            // Cambia la dirección del orden para el próximo clic
             ordenAscendente = !ordenAscendente;
         }
     </script>

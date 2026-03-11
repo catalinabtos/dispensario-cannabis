@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dispensarios Cannabis Chile | Dra. Catalina Barrientos</title>
     <style>
-        /* Estilos básicos para que se vea profesional inmediatamente */
         :root {
             --verde-principal: #2e7d32;
             --verde-claro: #e8f5e9;
@@ -48,7 +47,15 @@
             border-left: 5px solid var(--verde-principal);
         }
 
-        /* Estilos del Buscador y Tabla */
+        .invitacion-dispensarios {
+            background-color: #fff9c4; /* Un tono amarillo muy suave para destacar */
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            text-align: center;
+            border: 1px solid #fbc02d;
+        }
+
         .buscador {
             width: 100%;
             padding: 12px;
@@ -59,10 +66,18 @@
             box-sizing: border-box;
         }
 
+        /* Contenedor para hacer la tabla scrolleable */
+        .table-container {
+            max-height: 400px; /* Limita el alto a unos 6 dispensarios aprox */
+            overflow-y: auto;  /* Agrega el scroll vertical */
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin-bottom: 2rem;
+        }
+
         table {
             width: 100%;
             border-collapse: collapse;
-            margin-bottom: 2rem;
         }
 
         th, td {
@@ -71,10 +86,22 @@
             border-bottom: 1px solid #ddd;
         }
 
-        th { background-color: var(--verde-principal); color: white; }
+        th { 
+            background-color: var(--verde-principal); 
+            color: white; 
+            position: sticky; /* Hace que el encabezado no se mueva al hacer scroll */
+            top: 0; 
+            z-index: 1;
+            cursor: pointer; /* Cambia el cursor para indicar que es clickeable */
+            user-select: none;
+        }
+        
+        th:hover {
+            background-color: #1b5e20;
+        }
+
         tr:hover { background-color: #f1f1f1; }
 
-        /* Estilos de Botones */
         .btn {
             display: inline-block;
             background-color: var(--verde-principal);
@@ -91,6 +118,9 @@
         
         .btn-whatsapp { background-color: #25D366; }
         .btn-whatsapp:hover { background-color: #128C7E; }
+        
+        .btn-secundario { background-color: #fbc02d; color: #333;}
+        .btn-secundario:hover { background-color: #f9a825; }
 
         .seccion-agendar {
             text-align: center;
@@ -107,10 +137,10 @@
             font-size: 0.9rem;
         }
 
-        /* Diseño Responsivo para celulares */
         @media (max-width: 768px) {
             table, thead, tbody, th, td, tr { display: block; }
             th { display: none; }
+            .table-container { max-height: 600px; }
             td { 
                 position: relative; 
                 padding-left: 50%; 
@@ -141,173 +171,184 @@
         <section class="perfil-medico">
             <h2>Bienvenidos a este espacio</h2>
             <p>Soy la <strong>Dra. Catalina Paz Barrientos Cerda</strong>, médica con formación en cannabis medicinal. He creado este directorio pensando en mis pacientes (y en cualquier persona que lo necesite), para facilitar la búsqueda de dispensarios seguros, regulados y confiables a lo largo del país.</p>
-            <p>El uso de cannabis medicinal debe ser siempre bajo supervisión profesional. Si necesitas iniciar o ajustar tu tratamiento, estoy a tu disposición.</p>
+            <p>Gran parte de la información de los dispensarios aquí listados ha sido recopilada gracias al invaluable trabajo del equipo de la <strong>Fundación CannabiMed</strong>. Mi labor ha consistido en el desarrollo de esta página web, su estructuración y la recopilación de algunos dispensarios adicionales para democratizar el acceso a esta información.</p>
+            <p>Recuerda que el uso de cannabis medicinal debe ser siempre bajo supervisión profesional. Si necesitas iniciar o ajustar tu tratamiento, estoy a tu disposición.</p>
+        </section>
+
+        <section class="invitacion-dispensarios">
+            <h2>¿Tienes un dispensario o quieres actualizar datos?</h2>
+            <p>Si eres parte de un dispensario seguro que no está en la lista, o si notas que la información de tu organización está desactualizada, ¡escríbeme! Ayudémonos a mantener este directorio como una herramienta confiable para los pacientes.</p>
+            <a href="mailto:Cbarrientoscerda@gmail.com?subject=Directorio%20Dispensarios%20-%20Actualizar%20Info" class="btn btn-secundario">✉️ Enviar información del dispensario</a>
         </section>
 
         <section>
             <h2>Buscador de Dispensarios</h2>
             <input type="text" id="buscador" class="buscador" placeholder="Buscar por nombre, ciudad o región...">
 
-            <table id="tablaDispensarios">
-                <thead>
-                    <tr>
-                        <th>Nombre</th>
-                        <th>Región / Ubicación</th>
-                        <th>Teléfono / WhatsApp</th>
-                        <th>Correo Electrónico</th>
-                        <th>Web / Redes</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td data-label="Nombre">Asociación Anandamida</td>
-                        <td data-label="Ubicación">Región de Valparaíso</td>
-                        <td data-label="Tel/Wsp"><a href="https://wa.me/56928497941" target="_blank">+56 9 2849 7941</a></td>
-                        <td data-label="Correo"><a href="mailto:anandamida.asociacion@gmail.com">anandamida.asociacion@gmail.com</a></td>
-                        <td data-label="Web/Redes">@asociacion.anandamida</td>
-                    </tr>
-                    <tr>
-                        <td data-label="Nombre">Club Aldea Secreta</td>
-                        <td data-label="Ubicación">Región de Valparaíso</td>
-                        <td data-label="Tel/Wsp"><a href="https://wa.me/56963932997" target="_blank">+56 9 6393 2997</a></td>
-                        <td data-label="Correo"><a href="mailto:labsustentablenatural@gmail.com">labsustentablenatural@gmail.com</a></td>
-                        <td data-label="Web/Redes">@clubaldeasecreta / @club_aldeasecreta</td>
-                    </tr>
-                    <tr>
-                        <td data-label="Nombre">Los de la quinta / filial Mawida</td>
-                        <td data-label="Ubicación">Región de Valparaíso</td>
-                        <td data-label="Tel/Wsp"><a href="https://wa.me/56941951070" target="_blank">+56 9 4195 1070</a></td>
-                        <td data-label="Correo">-</td>
-                        <td data-label="Web/Redes">@losdelaquinta_</td>
-                    </tr>
-                    <tr>
-                        <td data-label="Nombre">Knnesebeck Extracciones</td>
-                        <td data-label="Ubicación">No especificada</td>
-                        <td data-label="Tel/Wsp"><a href="https://wa.me/56994744575" target="_blank">+56 9 9474 4575</a></td>
-                        <td data-label="Correo"><a href="mailto:knesebeck75@yahoo.com">knesebeck75@yahoo.com</a></td>
-                        <td data-label="Web/Redes">@knesebeck_extracciones</td>
-                    </tr>
-                    <tr>
-                        <td data-label="Nombre">Corporación Innovacann</td>
-                        <td data-label="Ubicación">Región de Valparaíso</td>
-                        <td data-label="Tel/Wsp">-</td>
-                        <td data-label="Correo"><a href="mailto:corporacioninnovacann@gmail.com">corporacioninnovacann@gmail.com</a></td>
-                        <td data-label="Web/Redes"><a href="https://www.innovacann.com" target="_blank">www.innovacann.com</a></td>
-                    </tr>
-                    <tr>
-                        <td data-label="Nombre">Asociación Greenwellness</td>
-                        <td data-label="Ubicación">Región de Valparaíso</td>
-                        <td data-label="Tel/Wsp"><a href="https://wa.me/56930694429" target="_blank">+56 9 3069 4429</a></td>
-                        <td data-label="Correo"><a href="mailto:info@greenwellness.cl">info@greenwellness.cl</a></td>
-                        <td data-label="Web/Redes"><a href="https://www.greenwellness.cl" target="_blank">www.greenwellness.cl</a></td>
-                    </tr>
-                    <tr>
-                        <td data-label="Nombre">Mawida</td>
-                        <td data-label="Ubicación">Región Metropolitana</td>
-                        <td data-label="Tel/Wsp"><a href="https://wa.me/56940269039" target="_blank">+56 9 4026 9039</a></td>
-                        <td data-label="Correo"><a href="mailto:Contacto@mawida.org">Contacto@mawida.org</a></td>
-                        <td data-label="Web/Redes"><a href="https://www.mawida.org" target="_blank">www.mawida.org</a></td>
-                    </tr>
-                    <tr>
-                        <td data-label="Nombre">La cura verde</td>
-                        <td data-label="Ubicación">Región Metropolitana y Valparaíso</td>
-                        <td data-label="Tel/Wsp"><a href="https://wa.me/56937143957" target="_blank">+56 9 3714 3957</a></td>
-                        <td data-label="Correo">-</td>
-                        <td data-label="Web/Redes">Lacuraverde.org</td>
-                    </tr>
-                    <tr>
-                        <td data-label="Nombre">GreenMed</td>
-                        <td data-label="Ubicación">Región Metropolitana</td>
-                        <td data-label="Tel/Wsp"><a href="https://wa.me/56937504601" target="_blank">+56 9 3750 4601</a></td>
-                        <td data-label="Correo">-</td>
-                        <td data-label="Web/Redes">-</td>
-                    </tr>
-                    <tr>
-                        <td data-label="Nombre">Corporación Tricoma</td>
-                        <td data-label="Ubicación">Región Metropolitana</td>
-                        <td data-label="Tel/Wsp">-</td>
-                        <td data-label="Correo"><a href="mailto:tricomacorporacion@gmail.com">tricomacorporacion@gmail.com</a></td>
-                        <td data-label="Web/Redes">-</td>
-                    </tr>
-                    <tr>
-                        <td data-label="Nombre">Corporación Tetra Club</td>
-                        <td data-label="Ubicación">Región Metropolitana</td>
-                        <td data-label="Tel/Wsp"><a href="https://wa.me/56929201313" target="_blank">+56 9 2920 1313</a> / +56 9 4522 3625</td>
-                        <td data-label="Correo"><a href="mailto:contacto@tetraclub.cl">contacto@tetraclub.cl</a></td>
-                        <td data-label="Web/Redes"><a href="https://www.tetraclub.cl" target="_blank">www.tetraclub.cl</a> / @corporaciontetraclub</td>
-                    </tr>
-                    <tr>
-                        <td data-label="Nombre">Fundación Calma</td>
-                        <td data-label="Ubicación">Región Metropolitana</td>
-                        <td data-label="Tel/Wsp"><a href="https://wa.me/56990877848" target="_blank">+56 9 9087 7848</a></td>
-                        <td data-label="Correo"><a href="mailto:contacto@fundacioncalma.com">contacto@fundacioncalma.com</a></td>
-                        <td data-label="Web/Redes">-</td>
-                    </tr>
-                    <tr>
-                        <td data-label="Nombre">Boticario Austral Kachu Lawen</td>
-                        <td data-label="Ubicación">Región Metropolitana</td>
-                        <td data-label="Tel/Wsp"><a href="https://wa.me/56926879705" target="_blank">+56 9 2687 9705</a> / +56 9 8384 9489</td>
-                        <td data-label="Correo"><a href="mailto:admision.boticario@gmail.com">admision.boticario@gmail.com</a></td>
-                        <td data-label="Web/Redes">-</td>
-                    </tr>
-                    <tr>
-                        <td data-label="Nombre">Dispensario Origen</td>
-                        <td data-label="Ubicación">Región Metropolitana</td>
-                        <td data-label="Tel/Wsp"><a href="https://wa.me/56998601143" target="_blank">+56 9 9860 1143</a></td>
-                        <td data-label="Correo">-</td>
-                        <td data-label="Web/Redes">-</td>
-                    </tr>
-                    <tr>
-                        <td data-label="Nombre">Corporación Almannabis</td>
-                        <td data-label="Ubicación">Región de la Araucanía</td>
-                        <td data-label="Tel/Wsp">-</td>
-                        <td data-label="Correo"><a href="mailto:contacto@almannabis.cl">contacto@almannabis.cl</a></td>
-                        <td data-label="Web/Redes">-</td>
-                    </tr>
-                    <tr>
-                        <td data-label="Nombre">Asociación We Moguen</td>
-                        <td data-label="Ubicación">Puerto Montt, Puerto Varas, Chiloé</td>
-                        <td data-label="Tel/Wsp">-</td>
-                        <td data-label="Correo"><a href="mailto:info@wemoguen.cl">info@wemoguen.cl</a></td>
-                        <td data-label="Web/Redes"><a href="https://www.wemoguen.cl" target="_blank">www.wemoguen.cl</a> / @we_moguen</td>
-                    </tr>
-                    <tr>
-                        <td data-label="Nombre">Asociación Roots Medicinal</td>
-                        <td data-label="Ubicación">Región de Aysén</td>
-                        <td data-label="Tel/Wsp">-</td>
-                        <td data-label="Correo"><a href="mailto:roots.dispensario@gmail.com">roots.dispensario@gmail.com</a></td>
-                        <td data-label="Web/Redes">-</td>
-                    </tr>
-                    <tr>
-                        <td data-label="Nombre">Corporación SalFlores High Club</td>
-                        <td data-label="Ubicación">Región de Aysén</td>
-                        <td data-label="Tel/Wsp"><a href="https://wa.me/56966916068" target="_blank">+56 9 6691 6068</a></td>
-                        <td data-label="Correo"><a href="mailto:coorporacionsalfloreshighclub@gmail.com">coorporacionsalfloreshighclub@gmail.com</a></td>
-                        <td data-label="Web/Redes">-</td>
-                    </tr>
-                    <tr>
-                        <td data-label="Nombre">Asociación Entre Ríos</td>
-                        <td data-label="Ubicación">Valdivia</td>
-                        <td data-label="Tel/Wsp"><a href="https://wa.me/56953193438" target="_blank">+56 9 5319 3438</a></td>
-                        <td data-label="Correo">-</td>
-                        <td data-label="Web/Redes"><a href="https://www.entrerios.org" target="_blank">www.entrerios.org</a> / @asociacion.entrerios</td>
-                    </tr>
-                    <tr>
-                        <td data-label="Nombre">Asociación Biobío</td>
-                        <td data-label="Ubicación">Concepción</td>
-                        <td data-label="Tel/Wsp"><a href="https://wa.me/56956507248" target="_blank">+56 9 5650 7248</a></td>
-                        <td data-label="Correo">-</td>
-                        <td data-label="Web/Redes"><a href="https://www.asociacionbiobio.org" target="_blank">www.asociacionbiobio.org</a> / @asociacion_biobio</td>
-                    </tr>
-                    <tr>
-                        <td data-label="Nombre">Es buena</td>
-                        <td data-label="Ubicación">Región Metropolitana</td>
-                        <td data-label="Tel/Wsp"><a href="https://wa.me/56966440995" target="_blank">+56 9 6644 0995</a></td>
-                        <td data-label="Correo">-</td>
-                        <td data-label="Web/Redes"><a href="https://www.esbuena.cl" target="_blank">www.esbuena.cl</a></td>
-                    </tr>
+            <p style="font-size: 0.9rem; color: #666; margin-top: -5px;"><em>💡 Haz clic en los títulos de la tabla para ordenar alfabéticamente (A-Z).</em></p>
+
+            <div class="table-container">
+                <table id="tablaDispensarios">
+                    <thead>
+                        <tr>
+                            <th onclick="ordenarTabla(0)">Nombre ↕️</th>
+                            <th onclick="ordenarTabla(1)">Región / Ubicación ↕️</th>
+                            <th onclick="ordenarTabla(2)">Teléfono / WhatsApp ↕️</th>
+                            <th>Correo Electrónico</th>
+                            <th>Web / Redes</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td data-label="Nombre">Asociación Anandamida</td>
+                            <td data-label="Ubicación">Región de Valparaíso</td>
+                            <td data-label="Tel/Wsp"><a href="https://wa.me/56928497941" target="_blank">+56 9 2849 7941</a></td>
+                            <td data-label="Correo"><a href="mailto:anandamida.asociacion@gmail.com">anandamida.asociacion@gmail.com</a></td>
+                            <td data-label="Web/Redes">@asociacion.anandamida</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Nombre">Club Aldea Secreta</td>
+                            <td data-label="Ubicación">Región de Valparaíso</td>
+                            <td data-label="Tel/Wsp"><a href="https://wa.me/56963932997" target="_blank">+56 9 6393 2997</a></td>
+                            <td data-label="Correo"><a href="mailto:labsustentablenatural@gmail.com">labsustentablenatural@gmail.com</a></td>
+                            <td data-label="Web/Redes">@clubaldeasecreta / @club_aldeasecreta</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Nombre">Los de la quinta / filial Mawida</td>
+                            <td data-label="Ubicación">Región de Valparaíso</td>
+                            <td data-label="Tel/Wsp"><a href="https://wa.me/56941951070" target="_blank">+56 9 4195 1070</a></td>
+                            <td data-label="Correo">-</td>
+                            <td data-label="Web/Redes">@losdelaquinta_</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Nombre">Knnesebeck Extracciones</td>
+                            <td data-label="Ubicación">No especificada</td>
+                            <td data-label="Tel/Wsp"><a href="https://wa.me/56994744575" target="_blank">+56 9 9474 4575</a></td>
+                            <td data-label="Correo"><a href="mailto:knesebeck75@yahoo.com">knesebeck75@yahoo.com</a></td>
+                            <td data-label="Web/Redes">@knesebeck_extracciones</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Nombre">Corporación Innovacann</td>
+                            <td data-label="Ubicación">Región de Valparaíso</td>
+                            <td data-label="Tel/Wsp">-</td>
+                            <td data-label="Correo"><a href="mailto:corporacioninnovacann@gmail.com">corporacioninnovacann@gmail.com</a></td>
+                            <td data-label="Web/Redes"><a href="https://www.innovacann.com" target="_blank">www.innovacann.com</a></td>
+                        </tr>
+                        <tr>
+                            <td data-label="Nombre">Asociación Greenwellness</td>
+                            <td data-label="Ubicación">Región de Valparaíso</td>
+                            <td data-label="Tel/Wsp"><a href="https://wa.me/56930694429" target="_blank">+56 9 3069 4429</a></td>
+                            <td data-label="Correo"><a href="mailto:info@greenwellness.cl">info@greenwellness.cl</a></td>
+                            <td data-label="Web/Redes"><a href="https://www.greenwellness.cl" target="_blank">www.greenwellness.cl</a></td>
+                        </tr>
+                        <tr>
+                            <td data-label="Nombre">Mawida</td>
+                            <td data-label="Ubicación">Región Metropolitana</td>
+                            <td data-label="Tel/Wsp"><a href="https://wa.me/56940269039" target="_blank">+56 9 4026 9039</a></td>
+                            <td data-label="Correo"><a href="mailto:Contacto@mawida.org">Contacto@mawida.org</a></td>
+                            <td data-label="Web/Redes"><a href="https://www.mawida.org" target="_blank">www.mawida.org</a></td>
+                        </tr>
+                        <tr>
+                            <td data-label="Nombre">La cura verde</td>
+                            <td data-label="Ubicación">Región Metropolitana y Valparaíso</td>
+                            <td data-label="Tel/Wsp"><a href="https://wa.me/56937143957" target="_blank">+56 9 3714 3957</a></td>
+                            <td data-label="Correo">-</td>
+                            <td data-label="Web/Redes">Lacuraverde.org</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Nombre">GreenMed</td>
+                            <td data-label="Ubicación">Región Metropolitana</td>
+                            <td data-label="Tel/Wsp"><a href="https://wa.me/56937504601" target="_blank">+56 9 3750 4601</a></td>
+                            <td data-label="Correo">-</td>
+                            <td data-label="Web/Redes">-</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Nombre">Corporación Tricoma</td>
+                            <td data-label="Ubicación">Región Metropolitana</td>
+                            <td data-label="Tel/Wsp">-</td>
+                            <td data-label="Correo"><a href="mailto:tricomacorporacion@gmail.com">tricomacorporacion@gmail.com</a></td>
+                            <td data-label="Web/Redes">-</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Nombre">Corporación Tetra Club</td>
+                            <td data-label="Ubicación">Región Metropolitana</td>
+                            <td data-label="Tel/Wsp"><a href="https://wa.me/56929201313" target="_blank">+56 9 2920 1313</a> / +56 9 4522 3625</td>
+                            <td data-label="Correo"><a href="mailto:contacto@tetraclub.cl">contacto@tetraclub.cl</a></td>
+                            <td data-label="Web/Redes"><a href="https://www.tetraclub.cl" target="_blank">www.tetraclub.cl</a> / @corporaciontetraclub</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Nombre">Fundación Calma</td>
+                            <td data-label="Ubicación">Región Metropolitana</td>
+                            <td data-label="Tel/Wsp"><a href="https://wa.me/56990877848" target="_blank">+56 9 9087 7848</a></td>
+                            <td data-label="Correo"><a href="mailto:contacto@fundacioncalma.com">contacto@fundacioncalma.com</a></td>
+                            <td data-label="Web/Redes">-</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Nombre">Boticario Austral Kachu Lawen</td>
+                            <td data-label="Ubicación">Región Metropolitana</td>
+                            <td data-label="Tel/Wsp"><a href="https://wa.me/56926879705" target="_blank">+56 9 2687 9705</a> / +56 9 8384 9489</td>
+                            <td data-label="Correo"><a href="mailto:admision.boticario@gmail.com">admision.boticario@gmail.com</a></td>
+                            <td data-label="Web/Redes">-</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Nombre">Dispensario Origen</td>
+                            <td data-label="Ubicación">Región Metropolitana</td>
+                            <td data-label="Tel/Wsp"><a href="https://wa.me/56998601143" target="_blank">+56 9 9860 1143</a></td>
+                            <td data-label="Correo">-</td>
+                            <td data-label="Web/Redes">-</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Nombre">Corporación Almannabis</td>
+                            <td data-label="Ubicación">Región de la Araucanía</td>
+                            <td data-label="Tel/Wsp">-</td>
+                            <td data-label="Correo"><a href="mailto:contacto@almannabis.cl">contacto@almannabis.cl</a></td>
+                            <td data-label="Web/Redes">-</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Nombre">Asociación We Moguen</td>
+                            <td data-label="Ubicación">Puerto Montt, Puerto Varas, Chiloé</td>
+                            <td data-label="Tel/Wsp">-</td>
+                            <td data-label="Correo"><a href="mailto:info@wemoguen.cl">info@wemoguen.cl</a></td>
+                            <td data-label="Web/Redes"><a href="https://www.wemoguen.cl" target="_blank">www.wemoguen.cl</a> / @we_moguen</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Nombre">Asociación Roots Medicinal</td>
+                            <td data-label="Ubicación">Región de Aysén</td>
+                            <td data-label="Tel/Wsp">-</td>
+                            <td data-label="Correo"><a href="mailto:roots.dispensario@gmail.com">roots.dispensario@gmail.com</a></td>
+                            <td data-label="Web/Redes">-</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Nombre">Corporación SalFlores High Club</td>
+                            <td data-label="Ubicación">Región de Aysén</td>
+                            <td data-label="Tel/Wsp"><a href="https://wa.me/56966916068" target="_blank">+56 9 6691 6068</a></td>
+                            <td data-label="Correo"><a href="mailto:coorporacionsalfloreshighclub@gmail.com">coorporacionsalfloreshighclub@gmail.com</a></td>
+                            <td data-label="Web/Redes">-</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Nombre">Asociación Entre Ríos</td>
+                            <td data-label="Ubicación">Valdivia</td>
+                            <td data-label="Tel/Wsp"><a href="https://wa.me/56953193438" target="_blank">+56 9 5319 3438</a></td>
+                            <td data-label="Correo">-</td>
+                            <td data-label="Web/Redes"><a href="https://www.entrerios.org" target="_blank">www.entrerios.org</a> / @asociacion.entrerios</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Nombre">Asociación Biobío</td>
+                            <td data-label="Ubicación">Concepción</td>
+                            <td data-label="Tel/Wsp"><a href="https://wa.me/56956507248" target="_blank">+56 9 5650 7248</a></td>
+                            <td data-label="Correo">-</td>
+                            <td data-label="Web/Redes"><a href="https://www.asociacionbiobio.org" target="_blank">www.asociacionbiobio.org</a> / @asociacion_biobio</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Nombre">Es buena</td>
+                            <td data-label="Ubicación">Región Metropolitana</td>
+                            <td data-label="Tel/Wsp"><a href="https://wa.me/56966440995" target="_blank">+56 9 6644 0995</a></td>
+                            <td data-label="Correo">-</td>
+                            <td data-label="Web/Redes"><a href="https://www.esbuena.cl" target="_blank">www.esbuena.cl</a></td>
+                        </tr>
                     </tbody>
-            </table>
+                </table>
+            </div>
         </section>
 
         <section style="margin-top: 3rem;">
@@ -317,7 +358,8 @@
             <div id="espacio-para-widget-comentarios" style="background: #f9f9f9; padding: 2rem; text-align: center; border: 1px dashed #ccc; border-radius: 8px;">
                 <div class="powr-comments" id="ab9f7a1e_1773195854"></div><script src="https://www.powr.io/powr.js?platform=html"></script>
             </div>
-            
+        </section>
+
         <section class="seccion-agendar">
             <h2>¿Necesitas iniciar tu tratamiento?</h2>
             <p>Agenda una consulta de medicina cannábica para una evaluación personalizada y prescripción segura.</p>
@@ -334,6 +376,7 @@
     </footer>
 
     <script>
+        // Funcionalidad del Buscador
         document.getElementById('buscador').addEventListener('keyup', function() {
             let filtro = this.value.toLowerCase();
             let filas = document.querySelectorAll('#tablaDispensarios tbody tr');
@@ -347,6 +390,29 @@
                 }
             });
         });
+
+        // Funcionalidad para ordenar la tabla (A-Z)
+        let ordenAscendente = true;
+        function ordenarTabla(columna) {
+            const tabla = document.getElementById("tablaDispensarios");
+            const tbody = tabla.querySelector("tbody");
+            const filas = Array.from(tbody.querySelectorAll("tr"));
+
+            filas.sort((a, b) => {
+                let textoA = a.querySelectorAll("td")[columna].textContent.trim().toLowerCase();
+                let textoB = b.querySelectorAll("td")[columna].textContent.trim().toLowerCase();
+
+                if (textoA < textoB) return ordenAscendente ? -1 : 1;
+                if (textoA > textoB) return ordenAscendente ? 1 : -1;
+                return 0;
+            });
+
+            // Re-agrega las filas ordenadas al cuerpo de la tabla
+            filas.forEach(fila => tbody.appendChild(fila));
+
+            // Cambia la dirección del orden para el próximo clic
+            ordenAscendente = !ordenAscendente;
+        }
     </script>
 
 </body>

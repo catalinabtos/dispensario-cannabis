@@ -29,7 +29,7 @@
 
     <style>
         :root {
-            var(--verde-principal: #1b5e20);
+            --verde-principal: #1b5e20;
             --verde-hover: #2e7d32;
             --verde-claro: #e8f5e9;
             --texto-oscuro: #2d3748;
@@ -455,7 +455,6 @@
                 let textoFila = fila.textContent.toLowerCase();
                 let regionFila = fila.querySelector('td[data-label="Ubicación"]').textContent.toLowerCase();
 
-                // Verifica si la fila cumple con ambos criterios (texto y región)
                 let coincideTexto = textoFila.includes(textoBuscado);
                 let coincideRegion = regionSeleccionada === "" || regionFila.includes(regionSeleccionada);
 
@@ -467,7 +466,6 @@
             });
         }
 
-        // Ejecutar el filtro cuando se escribe o se selecciona una opción
         buscadorTexto.addEventListener('keyup', filtrarTabla);
         filtroRegion.addEventListener('change', filtrarTabla);
 

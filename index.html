@@ -3,52 +3,212 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dra. [Tu Apellido] - Medicina Cannábica</title>
-    </head>
+    <title>Dispensarios Cannabis Chile | Dra. Catalina Barrientos</title>
+    <style>
+        /* Estilos básicos para que se vea profesional inmediatamente */
+        :root {
+            --verde-principal: #2e7d32;
+            --verde-claro: #e8f5e9;
+            --texto-oscuro: #333;
+            --fondo-gris: #f5f5f5;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--texto-oscuro);
+            margin: 0;
+            padding: 0;
+            background-color: var(--fondo-gris);
+        }
+
+        header {
+            background-color: var(--verde-principal);
+            color: white;
+            text-align: center;
+            padding: 2rem 1rem;
+        }
+
+        header h1 { margin: 0; font-size: 2.5rem; }
+        header p { margin: 10px 0 0; font-size: 1.2rem; opacity: 0.9; }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        .perfil-medico {
+            background-color: var(--verde-claro);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            border-left: 5px solid var(--verde-principal);
+        }
+
+        /* Estilos del Buscador y Tabla */
+        .buscador {
+            width: 100%;
+            padding: 12px;
+            font-size: 16px;
+            margin-bottom: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 2rem;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th { background-color: var(--verde-principal); color: white; }
+        tr:hover { background-color: #f1f1f1; }
+
+        /* Estilos de Botones */
+        .btn {
+            display: inline-block;
+            background-color: var(--verde-principal);
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            margin: 5px;
+            transition: background 0.3s;
+        }
+
+        .btn:hover { background-color: #1b5e20; }
+        
+        .btn-whatsapp { background-color: #25D366; }
+        .btn-whatsapp:hover { background-color: #128C7E; }
+
+        .seccion-agendar {
+            text-align: center;
+            padding: 2rem;
+            border-top: 2px dashed #ccc;
+            margin-top: 2rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 1.5rem;
+            background-color: #333;
+            color: white;
+            font-size: 0.9rem;
+        }
+
+        /* Diseño Responsivo para celulares */
+        @media (max-width: 768px) {
+            table, thead, tbody, th, td, tr { display: block; }
+            th { display: none; }
+            td { 
+                position: relative; 
+                padding-left: 50%; 
+                border-bottom: none;
+            }
+            td:before { 
+                position: absolute; 
+                left: 6px; 
+                width: 45%; 
+                padding-right: 10px; 
+                font-weight: bold; 
+                content: attr(data-label);
+            }
+            tr { border: 1px solid #ccc; margin-bottom: 10px; border-radius: 5px;}
+            .btn { display: block; width: 80%; margin: 10px auto; }
+        }
+    </style>
+</head>
 <body>
 
     <header>
-        <h1>Dra. [Tu Nombre y Apellido]</h1>
-        <p>Especialista en Medicina Cannábica</p>
-        <nav>
-            <a href="#directorio">Directorio de Dispensarios</a> | 
-            <a href="#agendar">Agendar Hora</a>
-        </nav>
+        <h1>Directorio de Dispensarios</h1>
+        <p>Cannabis Medicinal en Chile - Acceso Seguro e Informado</p>
     </header>
 
-    <main>
-        <section id="directorio">
-            <h2>Directorio de Dispensarios</h2>
-            <p>Encuentra dispensarios seguros y regulados:</p>
-            <ul>
-                <li>
-                    <strong>Dispensario Ejemplo 1</strong> - Santiago
-                    <p>Contacto: contacto@ejemplo1.cl | Web: www.ejemplo1.cl</p>
-                </li>
-                <li>
-                    <strong>Dispensario Ejemplo 2</strong> - Talca
-                    <p>Contacto: contacto@ejemplo2.cl | Web: www.ejemplo2.cl</p>
-                </li>
-            </ul>
+    <div class="container">
+        
+        <section class="perfil-medico">
+            <h2>Bienvenidos a este espacio</h2>
+            <p>Soy la <strong>Dra. Catalina Paz Barrientos Cerda</strong>, médica especialista en tratamientos con cannabis medicinal. He creado este directorio pensando en mis pacientes (y en cualquier persona que lo necesite), para facilitar la búsqueda de dispensarios seguros, regulados y confiables a lo largo del país.</p>
+            <p>El uso de cannabis medicinal debe ser siempre bajo supervisión profesional. Si necesitas iniciar o ajustar tu tratamiento, estoy a tu disposición.</p>
         </section>
 
-        <hr>
+        <section>
+            <h2>Buscador de Dispensarios</h2>
+            <input type="text" id="buscador" class="buscador" placeholder="Buscar por nombre, ciudad o región...">
 
-        <section id="agendar">
-            <h2>Agendar una Consulta</h2>
-            <p>Inicia tu tratamiento con un enfoque médico, seguro y personalizado.</p>
-            <a href="mailto:tu-correo@ejemplo.cl" target="_blank">
-                <button>Solicitar Hora por Correo</button>
-            </a>
-            <a href="https://wa.me/569XXXXXXXX" target="_blank">
-                <button>Agendar vía WhatsApp</button>
-            </a>
+            <table id="tablaDispensarios">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Región / Ubicación</th>
+                        <th>Teléfono / WhatsApp</th>
+                        <th>Correo Electrónico</th>
+                        <th>Web / Redes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td data-label="Nombre">Dispensario Esperanza</td>
+                        <td data-label="Ubicación">Maule / Talca</td>
+                        <td data-label="Tel/Wsp"><a href="https://wa.me/56900000000" target="_blank">+56 9 0000 0000</a></td>
+                        <td data-label="Correo"><a href="mailto:hola@esperanza.cl">hola@esperanza.cl</a></td>
+                        <td data-label="Web/Redes"><a href="#" target="_blank">@dispensario_esp</a></td>
+                    </tr>
+                    </tbody>
+            </table>
         </section>
-    </main>
+
+        <section style="margin-top: 3rem;">
+            <h2>Evaluaciones y Recomendaciones</h2>
+            <p>¿Conoces algún dispensario? Deja tu calificación de 1 a 5 estrellas y ayuda a otros pacientes a tomar decisiones informadas.</p>
+            
+            <div id="espacio-para-widget-comentarios" style="background: #f9f9f9; padding: 2rem; text-align: center; border: 1px dashed #ccc; border-radius: 8px;">
+                <p><em>[Área reservada para cargar el tablero interactivo de comentarios]</em></p>
+            </div>
+        </section>
+
+        <section class="seccion-agendar">
+            <h2>¿Necesitas iniciar tu tratamiento?</h2>
+            <p>Agenda una consulta de medicina cannábica para una evaluación personalizada y prescripción segura.</p>
+            
+            <a href="URL_DE_TU_SISTEMA_DE_AGENDAMIENTO" class="btn" target="_blank">🗓️ Agendar Hora (Link Web)</a>
+            <a href="https://wa.me/569XXXXXXXX?text=Hola,%20vengo%20del%20directorio%20y%20quiero%20agendar%20una%20hora." class="btn btn-whatsapp" target="_blank">💬 Agendar por WhatsApp</a>
+        </section>
+
+    </div>
 
     <footer>
-        <p>© 2026 Dra. [Tu Apellido]. Todos los derechos reservados.</p>
+        <p><strong>Aviso Legal:</strong> La información contenida en este directorio es de carácter referencial. El uso de cannabis con fines médicos debe ser indicado y supervisado por un profesional de la salud.</p>
+        <p>&copy; 2026 Dra. Catalina Paz Barrientos Cerda. Todos los derechos reservados.</p>
     </footer>
+
+    <script>
+        document.getElementById('buscador').addEventListener('keyup', function() {
+            let filtro = this.value.toLowerCase();
+            let filas = document.querySelectorAll('#tablaDispensarios tbody tr');
+
+            filas.forEach(function(fila) {
+                let textoFila = fila.textContent.toLowerCase();
+                if(textoFila.includes(filtro)) {
+                    fila.style.display = '';
+                } else {
+                    fila.style.display = 'none';
+                }
+            });
+        });
+    </script>
 
 </body>
 </html>

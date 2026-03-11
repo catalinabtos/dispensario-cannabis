@@ -29,8 +29,7 @@
 
     <style>
         :root {
-            /* Paleta de colores mejorada */
-            --verde-principal: #1b5e20;
+            var(--verde-principal: #1b5e20);
             --verde-hover: #2e7d32;
             --verde-claro: #e8f5e9;
             --texto-oscuro: #2d3748;
@@ -48,7 +47,6 @@
             background-color: var(--fondo-gris);
         }
 
-        /* Títulos usan Montserrat */
         h1, h2, h3 {
             font-family: 'Montserrat', sans-serif;
             font-weight: 700;
@@ -63,22 +61,12 @@
             box-shadow: var(--sombra-suave);
         }
 
-        header h1 { 
-            margin: 0; 
-            font-size: 2.8rem; 
-            color: white;
-        }
-        
-        header p { 
-            margin: 15px 0 0; 
-            font-size: 1.2rem; 
-            opacity: 0.9; 
-            font-weight: 400;
-        }
+        header h1 { margin: 0; font-size: 2.8rem; color: white; }
+        header p { margin: 15px 0 0; font-size: 1.2rem; opacity: 0.9; font-weight: 400; }
 
         .container {
             max-width: 1100px;
-            margin: -2rem auto 2rem; /* El margen negativo lo sube un poco sobre el header */
+            margin: -2rem auto 2rem; 
             padding: 3rem;
             background-color: white;
             box-shadow: var(--sombra-suave);
@@ -103,11 +91,16 @@
             border: 1px solid #ecc94b;
         }
 
-        .buscador {
-            width: 100%;
+        /* Estilos de la nueva sección de Filtros */
+        .filtros-container {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 1rem;
+        }
+
+        .buscador, .filtro-region {
             padding: 14px;
             font-size: 16px;
-            margin-bottom: 1rem;
             border: 2px solid #e2e8f0;
             border-radius: 8px;
             box-sizing: border-box;
@@ -115,7 +108,10 @@
             transition: border-color 0.3s ease;
         }
 
-        .buscador:focus {
+        .buscador { flex: 2; } /* Ocupa más espacio */
+        .filtro-region { flex: 1; cursor: pointer; background-color: white; }
+
+        .buscador:focus, .filtro-region:focus {
             outline: none;
             border-color: var(--verde-principal);
         }
@@ -153,21 +149,11 @@
             letter-spacing: 0.5px;
         }
         
-        th:hover {
-            background-color: var(--verde-hover);
-        }
-
+        th:hover { background-color: var(--verde-hover); }
         tr:hover { background-color: #f7fafc; }
         
-        td a {
-            color: var(--verde-principal);
-            text-decoration: none;
-            font-weight: 600;
-        }
-        
-        td a:hover {
-            text-decoration: underline;
-        }
+        td a { color: var(--verde-principal); text-decoration: none; font-weight: 600; }
+        td a:hover { text-decoration: underline; }
 
         .btn {
             display: inline-block;
@@ -191,7 +177,6 @@
         
         .btn-whatsapp { background-color: #25D366; }
         .btn-whatsapp:hover { background-color: #128C7E; }
-        
         .btn-secundario { background-color: #d69e2e; color: white;}
         .btn-secundario:hover { background-color: #b7791f; }
 
@@ -214,23 +199,12 @@
         @media (max-width: 768px) {
             .container { padding: 1.5rem; margin-top: 0; border-radius: 0; }
             header h1 { font-size: 2rem; }
+            .filtros-container { flex-direction: column; gap: 10px; } /* En celular se apilan */
             table, thead, tbody, th, td, tr { display: block; }
             th { display: none; }
             .table-container { max-height: 600px; border: none; box-shadow: none;}
-            td { 
-                position: relative; 
-                padding-left: 50%; 
-                border-bottom: 1px solid #edf2f7;
-            }
-            td:before { 
-                position: absolute; 
-                left: 10px; 
-                width: 45%; 
-                padding-right: 10px; 
-                font-weight: 600; 
-                color: var(--texto-suave);
-                content: attr(data-label);
-            }
+            td { position: relative; padding-left: 50%; border-bottom: 1px solid #edf2f7;}
+            td:before { position: absolute; left: 10px; width: 45%; padding-right: 10px; font-weight: 600; color: var(--texto-suave); content: attr(data-label);}
             tr { border: 1px solid #e2e8f0; margin-bottom: 15px; border-radius: 8px; background-color: white;}
             .btn { display: block; width: 85%; margin: 15px auto; }
         }
@@ -261,7 +235,21 @@
 
         <section>
             <h2>Buscador de Dispensarios</h2>
-            <input type="text" id="buscador" class="buscador" placeholder="Buscar por nombre, ciudad o región...">
+            
+            <div class="filtros-container">
+                <input type="text" id="buscador" class="buscador" placeholder="Buscar por nombre, ciudad o palabra clave...">
+                
+                <select id="filtroRegion" class="filtro-region">
+                    <option value="">Todas las Regiones</option>
+                    <option value="Región de Valparaíso">Región de Valparaíso</option>
+                    <option value="Región Metropolitana">Región Metropolitana</option>
+                    <option value="Región de la Araucanía">Región de la Araucanía</option>
+                    <option value="Región de Aysén">Región de Aysén</option>
+                    <option value="Concepción">Concepción (Biobío)</option>
+                    <option value="Valdivia">Valdivia (Los Ríos)</option>
+                    <option value="Puerto Montt">Los Lagos (Pto. Montt/Varas/Chiloé)</option>
+                </select>
+            </div>
 
             <p style="font-size: 0.9rem; color: var(--texto-suave); margin-top: -5px; margin-bottom: 15px;"><em>💡 Haz clic en los títulos de la tabla para ordenar alfabéticamente (A-Z).</em></p>
 
@@ -454,29 +442,43 @@
     </footer>
 
     <script>
-        // Funcionalidad del Buscador
-        document.getElementById('buscador').addEventListener('keyup', function() {
-            let filtro = this.value.toLowerCase();
-            let filas = document.querySelectorAll('#tablaDispensarios tbody tr');
+        // Funcionalidad Combinada (Buscador Texto + Filtro Región)
+        const buscadorTexto = document.getElementById('buscador');
+        const filtroRegion = document.getElementById('filtroRegion');
+        const filas = document.querySelectorAll('#tablaDispensarios tbody tr');
+
+        function filtrarTabla() {
+            let textoBuscado = buscadorTexto.value.toLowerCase();
+            let regionSeleccionada = filtroRegion.value.toLowerCase();
 
             filas.forEach(function(fila) {
                 let textoFila = fila.textContent.toLowerCase();
-                if(textoFila.includes(filtro)) {
+                let regionFila = fila.querySelector('td[data-label="Ubicación"]').textContent.toLowerCase();
+
+                // Verifica si la fila cumple con ambos criterios (texto y región)
+                let coincideTexto = textoFila.includes(textoBuscado);
+                let coincideRegion = regionSeleccionada === "" || regionFila.includes(regionSeleccionada);
+
+                if (coincideTexto && coincideRegion) {
                     fila.style.display = '';
                 } else {
                     fila.style.display = 'none';
                 }
             });
-        });
+        }
+
+        // Ejecutar el filtro cuando se escribe o se selecciona una opción
+        buscadorTexto.addEventListener('keyup', filtrarTabla);
+        filtroRegion.addEventListener('change', filtrarTabla);
 
         // Funcionalidad para ordenar la tabla (A-Z)
         let ordenAscendente = true;
         function ordenarTabla(columna) {
             const tabla = document.getElementById("tablaDispensarios");
             const tbody = tabla.querySelector("tbody");
-            const filas = Array.from(tbody.querySelectorAll("tr"));
+            const arrayFilas = Array.from(tbody.querySelectorAll("tr"));
 
-            filas.sort((a, b) => {
+            arrayFilas.sort((a, b) => {
                 let textoA = a.querySelectorAll("td")[columna].textContent.trim().toLowerCase();
                 let textoB = b.querySelectorAll("td")[columna].textContent.trim().toLowerCase();
 
@@ -485,7 +487,7 @@
                 return 0;
             });
 
-            filas.forEach(fila => tbody.appendChild(fila));
+            arrayFilas.forEach(fila => tbody.appendChild(fila));
             ordenAscendente = !ordenAscendente;
         }
     </script>

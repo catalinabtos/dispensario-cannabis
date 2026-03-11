@@ -8,19 +8,11 @@
     <meta name="description" content="Directorio nacional de dispensarios de cannabis medicinal en Chile, seguro y regulado. Encuentra tu dispensario y agenda tu consulta médica con la Dra. Catalina Barrientos.">
     <meta name="keywords" content="cannabis medicinal chile, dispensarios cannabis, receta cannabis, doctora medicina cannabica, Dra Catalina Barrientos, cannabis receta medica, fundación cannabimed">
     <meta name="author" content="Dra. Catalina Paz Barrientos Cerda">
-
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.dispensariocannabis.cl/">
     <meta property="og:title" content="Directorio de Dispensarios de Cannabis Chile">
-    <meta property="og:description" content="Encuentra dispensarios a lo largo de Chile. Directorio creado para pacientes de medicina cannábica.">
+    <meta property="og:description" content="Encuentra organizaciones y dispensarios seguros a lo largo de Chile. Directorio creado para pacientes de medicina cannábica.">
     <meta property="og:image" content="https://images.unsplash.com/photo-1603908848419-48286ebef195?q=80&w=1200&auto=format&fit=crop"> 
-
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://www.dispensariocannabis.cl/">
-    <meta property="twitter:title" content="Directorio de Dispensarios de Cannabis Chile">
-    <meta property="twitter:description" content="Encuentra dispensarios a lo largo de Chile. Directorio creado para pacientes de medicina cannábica.">
-    <meta property="twitter:image" content="https://images.unsplash.com/photo-1603908848419-48286ebef195?q=80&w=1200&auto=format&fit=crop">
-
     <link rel="icon" href="https://raw.githubusercontent.com/twitter/twemoji/master/assets/72x72/1f33f.png" type="image/png">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -54,20 +46,24 @@
             color: var(--verde-principal);
         }
 
+        /* --- MEJORA #2: HERO BANNER --- */
         header {
-            background-color: var(--verde-principal);
+            /* Aquí cambias el link de la foto de fondo si quieres */
+            background-image: linear-gradient(rgba(27, 94, 32, 0.85), rgba(27, 94, 32, 0.85)), url('https://images.unsplash.com/photo-1584308666744-24d5e478ac6c?q=80&w=1200&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
             color: white;
             text-align: center;
-            padding: 3rem 1rem;
+            padding: 4rem 1rem 5rem 1rem; /* Más espacio arriba y abajo */
             box-shadow: var(--sombra-suave);
         }
 
-        header h1 { margin: 0; font-size: 2.8rem; color: white; }
-        header p { margin: 15px 0 0; font-size: 1.2rem; opacity: 0.9; font-weight: 400; }
+        header h1 { margin: 0; font-size: 3rem; color: white; text-shadow: 0 2px 4px rgba(0,0,0,0.3); }
+        header p { margin: 15px 0 25px; font-size: 1.25rem; opacity: 0.95; font-weight: 400; text-shadow: 0 1px 2px rgba(0,0,0,0.3); }
 
         .container {
             max-width: 1100px;
-            margin: -2rem auto 2rem; 
+            margin: -3rem auto 2rem; 
             padding: 3rem;
             background-color: white;
             box-shadow: var(--sombra-suave);
@@ -75,13 +71,34 @@
             position: relative;
         }
 
+        /* --- MEJORA #1: PERFIL CON FOTO --- */
         .perfil-medico {
             background-color: var(--verde-claro);
-            padding: 2rem;
-            border-radius: 8px;
+            padding: 2.5rem;
+            border-radius: 12px;
             margin-bottom: 2.5rem;
             border-left: 6px solid var(--verde-principal);
+            display: flex;
+            align-items: center;
+            gap: 2rem;
         }
+
+        .perfil-foto {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid white;
+            box-shadow: var(--sombra-suave);
+            flex-shrink: 0; /* Evita que la foto se aplaste */
+        }
+
+        .perfil-texto {
+            flex-grow: 1;
+        }
+
+        .perfil-texto h2 { margin-top: 0; }
+        .perfil-texto p { margin-bottom: 0.5rem; }
 
         .invitacion-dispensarios {
             background-color: #fefcbf; 
@@ -93,190 +110,104 @@
         }
 
         /* Estilos de Filtros */
-        .filtros-container {
-            display: flex;
-            gap: 15px;
-            margin-bottom: 1rem;
-        }
-
+        .filtros-container { display: flex; gap: 15px; margin-bottom: 1rem; }
         .buscador, .filtro-region {
-            padding: 14px;
-            font-size: 16px;
-            border: 2px solid #e2e8f0;
-            border-radius: 8px;
-            box-sizing: border-box;
-            font-family: 'Open Sans', sans-serif;
+            padding: 14px; font-size: 16px; border: 2px solid #e2e8f0;
+            border-radius: 8px; box-sizing: border-box; font-family: 'Open Sans', sans-serif;
             transition: border-color 0.3s ease;
         }
-
         .buscador { flex: 2; } 
         .filtro-region { flex: 1; cursor: pointer; background-color: white; }
-
-        .buscador:focus, .filtro-region:focus {
-            outline: none;
-            border-color: var(--verde-principal);
-        }
+        .buscador:focus, .filtro-region:focus { outline: none; border-color: var(--verde-principal); }
 
         /* Estilos de Tabla */
         .table-container {
-            max-height: 500px; 
-            overflow-y: auto;  
-            border: 1px solid #e2e8f0;
-            border-radius: 8px;
-            margin-bottom: 3rem;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            max-height: 500px; overflow-y: auto; border: 1px solid #e2e8f0;
+            border-radius: 8px; margin-bottom: 3rem; box-shadow: 0 1px 3px rgba(0,0,0,0.05);
         }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-
-        th, td {
-            padding: 14px 16px;
-            text-align: left;
-            border-bottom: 1px solid #edf2f7;
-        }
-
+        table { width: 100%; border-collapse: collapse; }
+        th, td { padding: 16px; text-align: left; border-bottom: 1px solid #edf2f7; }
         th { 
-            background-color: var(--verde-principal); 
-            color: white; 
-            position: sticky; 
-            top: 0; 
-            z-index: 1;
-            cursor: pointer; 
-            user-select: none;
-            font-family: 'Montserrat', sans-serif;
-            font-size: 0.95rem;
-            letter-spacing: 0.5px;
+            background-color: var(--verde-principal); color: white; position: sticky; 
+            top: 0; z-index: 1; cursor: pointer; user-select: none;
+            font-family: 'Montserrat', sans-serif; font-size: 0.95rem; letter-spacing: 0.5px;
         }
-        
         th:hover { background-color: var(--verde-hover); }
         tr:hover { background-color: #f7fafc; }
         
-        td a { color: var(--verde-principal); text-decoration: none; font-weight: 600; }
-        td a:hover { text-decoration: underline; }
+        /* --- MEJORA #5: ETIQUETAS DE REGIONES (TAGS) --- */
+        .tag {
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            display: inline-block;
+            white-space: nowrap;
+        }
+        
+        .tag-rm { background-color: #e0f2fe; color: #0284c7; } /* Azul claro */
+        .tag-valpo { background-color: #f3e8ff; color: #9333ea; } /* Morado claro */
+        .tag-sur { background-color: #dcfce7; color: #166534; } /* Verde claro */
+        .tag-norte { background-color: #ffedd5; color: #c2410c; } /* Naranjo claro */
+        .tag-default { background-color: #f1f5f9; color: #475569; } /* Gris */
 
         /* Estilos de Botones */
         .btn {
-            display: inline-block;
-            background-color: var(--verde-principal);
-            color: white;
-            padding: 12px 24px;
-            text-decoration: none;
-            border-radius: 8px;
-            font-weight: 600;
-            font-family: 'Montserrat', sans-serif;
-            margin: 8px;
-            transition: all 0.3s ease;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            border: none;
-            cursor: pointer;
-            text-align: center;
+            display: inline-block; background-color: var(--verde-principal); color: white;
+            padding: 12px 24px; text-decoration: none; border-radius: 8px; font-weight: 600;
+            font-family: 'Montserrat', sans-serif; margin: 8px; transition: all 0.3s ease;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1); border: none; cursor: pointer; text-align: center;
         }
-
-        .btn:hover { 
-            background-color: var(--verde-hover); 
-            transform: translateY(-2px);
-            box-shadow: 0 4px 6px rgba(0,0,0,0.15);
-        }
-        
+        .btn:hover { background-color: var(--verde-hover); transform: translateY(-2px); box-shadow: 0 4px 6px rgba(0,0,0,0.15); }
         .btn-whatsapp { background-color: #25D366; }
         .btn-whatsapp:hover { background-color: #128C7E; }
         .btn-secundario { background-color: #d69e2e; color: white;}
         .btn-secundario:hover { background-color: #b7791f; }
-        
-        /* Botón pequeño para la tabla */
-        .btn-sm {
-            padding: 6px 12px;
-            font-size: 0.85rem;
-            margin: 0;
-        }
+        .btn-header { background-color: white; color: var(--verde-principal); margin-top: 10px;}
+        .btn-header:hover { background-color: #f1f5f9; color: var(--verde-hover); }
+        .btn-sm { padding: 8px 14px; font-size: 0.85rem; margin: 0; }
 
-        /* --- Estilos del Pop-up (Modal) --- */
+        /* Estilos del Pop-up (Modal) */
         .modal-overlay {
-            display: none; 
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background-color: rgba(0, 0, 0, 0.6);
-            z-index: 1000;
-            justify-content: center;
-            align-items: center;
-            padding: 1rem;
-            box-sizing: border-box;
-            backdrop-filter: blur(3px); 
+            display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background-color: rgba(0, 0, 0, 0.6); z-index: 1000; justify-content: center;
+            align-items: center; padding: 1rem; box-sizing: border-box; backdrop-filter: blur(3px); 
         }
-
         .modal-content {
-            background-color: white;
-            padding: 2.5rem;
-            border-radius: 12px;
-            max-width: 500px;
-            width: 100%;
-            box-shadow: var(--sombra-fuerte);
-            position: relative;
-            animation: deslizarArriba 0.3s ease-out;
+            background-color: white; padding: 2.5rem; border-radius: 12px; max-width: 500px;
+            width: 100%; box-shadow: var(--sombra-fuerte); position: relative; animation: deslizarArriba 0.3s ease-out;
         }
-
-        @keyframes deslizarArriba {
-            from { transform: translateY(20px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
-        }
-
+        @keyframes deslizarArriba { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
         .btn-cerrar-modal {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            color: #a0aec0;
-            cursor: pointer;
-            transition: color 0.2s;
+            position: absolute; top: 15px; right: 15px; background: none; border: none;
+            font-size: 1.5rem; color: #a0aec0; cursor: pointer; transition: color 0.2s;
         }
-
         .btn-cerrar-modal:hover { color: #4a5568; }
-
         .modal-header h3 { margin-top: 0; margin-bottom: 0.5rem; font-size: 1.8rem; }
-        .modal-region { color: var(--texto-suave); font-weight: 600; font-size: 0.95rem; margin-bottom: 1.5rem; display: block; }
-        
+        .modal-region { margin-bottom: 1.5rem; display: inline-block; }
         .modal-body p { margin-bottom: 1rem; border-bottom: 1px solid #edf2f7; padding-bottom: 0.5rem; }
         .modal-body strong { color: var(--texto-oscuro); display: inline-block; width: 100px; }
-        
+        .modal-body a { color: var(--verde-principal); font-weight: 600; text-decoration: none;}
         .modal-footer { margin-top: 2rem; text-align: center; }
 
-        .seccion-agendar {
-            text-align: center;
-            padding: 3rem 2rem;
-            background-color: #f7fafc;
-            border-radius: 12px;
-            margin-top: 3rem;
-        }
-
-        footer {
-            text-align: center;
-            padding: 2rem;
-            background-color: #1a202c;
-            color: #e2e8f0;
-            font-size: 0.9rem;
-        }
+        .seccion-agendar { text-align: center; padding: 3rem 2rem; background-color: #f7fafc; border-radius: 12px; margin-top: 3rem; }
+        footer { text-align: center; padding: 2rem; background-color: #1a202c; color: #e2e8f0; font-size: 0.9rem; }
 
         @media (max-width: 768px) {
-            .container { padding: 1.5rem; margin-top: 0; border-radius: 0; }
+            .container { padding: 1.5rem; margin-top: -1.5rem; border-radius: 12px 12px 0 0; }
             header h1 { font-size: 2rem; }
+            .perfil-medico { flex-direction: column; text-align: center; gap: 1rem; padding: 1.5rem;}
             .filtros-container { flex-direction: column; gap: 10px; }
-            
             table, thead, tbody, th, td, tr { display: block; }
             th { display: none; }
             .table-container { max-height: 600px; border: none; box-shadow: none;}
             td { position: relative; padding-left: 45%; border-bottom: 1px solid #edf2f7;}
             td:before { position: absolute; left: 10px; width: 40%; padding-right: 10px; font-weight: 600; color: var(--texto-suave); content: attr(data-label);}
             tr { border: 1px solid #e2e8f0; margin-bottom: 15px; border-radius: 8px; background-color: white; padding-bottom: 10px;}
-            
             td.td-acciones { padding-left: 15px; text-align: center; border-bottom: none; margin-top: 5px; }
             td.td-acciones:before { display: none; }
-            
             .btn { display: block; width: 85%; margin: 15px auto; }
+            .btn-header { width: 80%; }
             .btn-sm { display: inline-block; width: auto; margin: 0; }
         }
     </style>
@@ -286,22 +217,26 @@
     <header>
         <h1>Directorio de Dispensarios</h1>
         <p>Cannabis Medicinal en Chile - Acceso Seguro e Informado</p>
+        <a href="https://beta-sacmed.novacaribe.com/ReservaOnline/11302" class="btn btn-header" target="_blank">🗓️ Agendar Consulta Médica</a>
     </header>
 
     <div class="container">
         
         <section class="perfil-medico">
-            <h2>Bienvenidos a este espacio</h2>
-            <p>Soy la <strong>Dra. Catalina Paz Barrientos Cerda</strong>, médica con formación en cannabis medicinal. He creado este directorio pensando en mis pacientes (y en cualquier persona que lo necesite), para facilitar la búsqueda de dispensarios seguros, regulados y confiables a lo largo del país.</p>
-            <p>Gran parte de la información de los dispensarios aquí listados ha sido recopilada gracias al invaluable trabajo del equipo de la <strong>Fundación CannabiMed</strong>. Mi labor ha consistido en el desarrollo de esta página web, su estructuración y la recopilación de algunos dispensarios adicionales para democratizar el acceso a esta información.</p>
-            <p>Recuerda que el uso de cannabis medicinal debe ser siempre bajo supervisión profesional. Si necesitas iniciar o ajustar tu tratamiento, estoy a tu disposición.</p>
+            <img src="https://images.unsplash.com/photo-1594824436968-45d62ee40294?q=80&w=400&auto=format&fit=crop" alt="Dra. Catalina Barrientos" class="perfil-foto">
+            
+            <div class="perfil-texto">
+                <h2>Bienvenidos a este espacio</h2>
+                <p>Soy la <strong>Dra. Catalina Paz Barrientos Cerda</strong>, médica con formación en cannabis medicinal. He creado este directorio para facilitar a mis pacientes (y a quien lo necesite) la búsqueda de dispensarios seguros y regulados.</p>
+                <p>La base de este directorio fue recopilada gracias al trabajo de la <strong>Fundación CannabiMed</strong>. Mi labor ha sido estructurarlo y ampliarlo en esta web para democratizar el acceso a la información.</p>
+                <p><em>Recuerda: El uso de cannabis medicinal debe ser siempre bajo supervisión profesional.</em></p>
+            </div>
         </section>
 
         <section class="invitacion-dispensarios">
             <h2>¿Tienes un dispensario o quieres actualizar datos?</h2>
-            <p>Si eres parte de un dispensario que no está en la lista, o si notas que la información de tu organización está desactualizada, ¡escríbeme! Ayudémonos a mantener este directorio como una herramienta confiable para los pacientes.</p>
-            <br>
-            <a href="mailto:Cbarrientoscerda@gmail.com?subject=Directorio%20Dispensarios%20-%20Actualizar%20Directorio" class="btn btn-secundario">✉️ Enviar información del dispensario</a>
+            <p>Ayudémonos a mantener este directorio como una herramienta confiable para los pacientes. ¡Escríbeme para agregar o corregir información!</p>
+            <a href="mailto:Cbarrientoscerda@gmail.com?subject=Directorio%20Dispensarios%20-%20Actualizar%20Info" class="btn btn-secundario">✉️ Enviar información del dispensario</a>
         </section>
 
         <section>
@@ -336,7 +271,7 @@
                     <tbody>
                         <tr>
                             <td data-label="Nombre" class="dato-nombre">Asociación Anandamida</td>
-                            <td data-label="Ubicación" class="dato-region">Región de Valparaíso</td>
+                            <td data-label="Ubicación" class="dato-region"><span class="tag tag-valpo">Región de Valparaíso</span></td>
                             <td style="display:none;" class="dato-tel"><a href="https://wa.me/56928497941" target="_blank">+56 9 2849 7941</a></td>
                             <td style="display:none;" class="dato-correo"><a href="mailto:anandamida.asociacion@gmail.com">anandamida.asociacion@gmail.com</a></td>
                             <td style="display:none;" class="dato-web">@asociacion.anandamida</td>
@@ -344,7 +279,7 @@
                         </tr>
                         <tr>
                             <td data-label="Nombre" class="dato-nombre">Club Aldea Secreta</td>
-                            <td data-label="Ubicación" class="dato-region">Región de Valparaíso</td>
+                            <td data-label="Ubicación" class="dato-region"><span class="tag tag-valpo">Región de Valparaíso</span></td>
                             <td style="display:none;" class="dato-tel"><a href="https://wa.me/56963932997" target="_blank">+56 9 6393 2997</a></td>
                             <td style="display:none;" class="dato-correo"><a href="mailto:labsustentablenatural@gmail.com">labsustentablenatural@gmail.com</a></td>
                             <td style="display:none;" class="dato-web">@clubaldeasecreta / @club_aldeasecreta</td>
@@ -352,7 +287,7 @@
                         </tr>
                         <tr>
                             <td data-label="Nombre" class="dato-nombre">Los de la quinta / filial Mawida</td>
-                            <td data-label="Ubicación" class="dato-region">Región de Valparaíso</td>
+                            <td data-label="Ubicación" class="dato-region"><span class="tag tag-valpo">Región de Valparaíso</span></td>
                             <td style="display:none;" class="dato-tel"><a href="https://wa.me/56941951070" target="_blank">+56 9 4195 1070</a></td>
                             <td style="display:none;" class="dato-correo">-</td>
                             <td style="display:none;" class="dato-web">@losdelaquinta_</td>
@@ -360,7 +295,7 @@
                         </tr>
                         <tr>
                             <td data-label="Nombre" class="dato-nombre">Knnesebeck Extracciones</td>
-                            <td data-label="Ubicación" class="dato-region">No especificada</td>
+                            <td data-label="Ubicación" class="dato-region"><span class="tag tag-default">No especificada</span></td>
                             <td style="display:none;" class="dato-tel"><a href="https://wa.me/56994744575" target="_blank">+56 9 9474 4575</a></td>
                             <td style="display:none;" class="dato-correo"><a href="mailto:knesebeck75@yahoo.com">knesebeck75@yahoo.com</a></td>
                             <td style="display:none;" class="dato-web">@knesebeck_extracciones</td>
@@ -368,7 +303,7 @@
                         </tr>
                         <tr>
                             <td data-label="Nombre" class="dato-nombre">Corporación Innovacann</td>
-                            <td data-label="Ubicación" class="dato-region">Región de Valparaíso</td>
+                            <td data-label="Ubicación" class="dato-region"><span class="tag tag-valpo">Región de Valparaíso</span></td>
                             <td style="display:none;" class="dato-tel">-</td>
                             <td style="display:none;" class="dato-correo"><a href="mailto:corporacioninnovacann@gmail.com">corporacioninnovacann@gmail.com</a></td>
                             <td style="display:none;" class="dato-web"><a href="https://www.innovacann.com" target="_blank">www.innovacann.com</a></td>
@@ -376,7 +311,7 @@
                         </tr>
                         <tr>
                             <td data-label="Nombre" class="dato-nombre">Asociación Greenwellness</td>
-                            <td data-label="Ubicación" class="dato-region">Región de Valparaíso</td>
+                            <td data-label="Ubicación" class="dato-region"><span class="tag tag-valpo">Región de Valparaíso</span></td>
                             <td style="display:none;" class="dato-tel"><a href="https://wa.me/56930694429" target="_blank">+56 9 3069 4429</a></td>
                             <td style="display:none;" class="dato-correo"><a href="mailto:info@greenwellness.cl">info@greenwellness.cl</a></td>
                             <td style="display:none;" class="dato-web"><a href="https://www.greenwellness.cl" target="_blank">www.greenwellness.cl</a></td>
@@ -384,7 +319,7 @@
                         </tr>
                         <tr>
                             <td data-label="Nombre" class="dato-nombre">Mawida</td>
-                            <td data-label="Ubicación" class="dato-region">Región Metropolitana</td>
+                            <td data-label="Ubicación" class="dato-region"><span class="tag tag-rm">Región Metropolitana</span></td>
                             <td style="display:none;" class="dato-tel"><a href="https://wa.me/56940269039" target="_blank">+56 9 4026 9039</a></td>
                             <td style="display:none;" class="dato-correo"><a href="mailto:Contacto@mawida.org">Contacto@mawida.org</a></td>
                             <td style="display:none;" class="dato-web"><a href="https://www.mawida.org" target="_blank">www.mawida.org</a></td>
@@ -392,7 +327,7 @@
                         </tr>
                         <tr>
                             <td data-label="Nombre" class="dato-nombre">La cura verde</td>
-                            <td data-label="Ubicación" class="dato-region">Región Metropolitana y Valparaíso</td>
+                            <td data-label="Ubicación" class="dato-region"><span class="tag tag-rm">Metropolitana</span> / <span class="tag tag-valpo">Valparaíso</span></td>
                             <td style="display:none;" class="dato-tel"><a href="https://wa.me/56937143957" target="_blank">+56 9 3714 3957</a></td>
                             <td style="display:none;" class="dato-correo">-</td>
                             <td style="display:none;" class="dato-web">Lacuraverde.org</td>
@@ -400,7 +335,7 @@
                         </tr>
                         <tr>
                             <td data-label="Nombre" class="dato-nombre">GreenMed</td>
-                            <td data-label="Ubicación" class="dato-region">Región Metropolitana</td>
+                            <td data-label="Ubicación" class="dato-region"><span class="tag tag-rm">Región Metropolitana</span></td>
                             <td style="display:none;" class="dato-tel"><a href="https://wa.me/56937504601" target="_blank">+56 9 3750 4601</a></td>
                             <td style="display:none;" class="dato-correo">-</td>
                             <td style="display:none;" class="dato-web">-</td>
@@ -408,7 +343,7 @@
                         </tr>
                         <tr>
                             <td data-label="Nombre" class="dato-nombre">Corporación Tricoma</td>
-                            <td data-label="Ubicación" class="dato-region">Región Metropolitana</td>
+                            <td data-label="Ubicación" class="dato-region"><span class="tag tag-rm">Región Metropolitana</span></td>
                             <td style="display:none;" class="dato-tel">-</td>
                             <td style="display:none;" class="dato-correo"><a href="mailto:tricomacorporacion@gmail.com">tricomacorporacion@gmail.com</a></td>
                             <td style="display:none;" class="dato-web">-</td>
@@ -416,7 +351,7 @@
                         </tr>
                         <tr>
                             <td data-label="Nombre" class="dato-nombre">Corporación Tetra Club</td>
-                            <td data-label="Ubicación" class="dato-region">Región Metropolitana</td>
+                            <td data-label="Ubicación" class="dato-region"><span class="tag tag-rm">Región Metropolitana</span></td>
                             <td style="display:none;" class="dato-tel"><a href="https://wa.me/56929201313" target="_blank">+56 9 2920 1313</a> / +56 9 4522 3625</td>
                             <td style="display:none;" class="dato-correo"><a href="mailto:contacto@tetraclub.cl">contacto@tetraclub.cl</a></td>
                             <td style="display:none;" class="dato-web"><a href="https://www.tetraclub.cl" target="_blank">www.tetraclub.cl</a> / @corporaciontetraclub</td>
@@ -424,7 +359,7 @@
                         </tr>
                         <tr>
                             <td data-label="Nombre" class="dato-nombre">Fundación Calma</td>
-                            <td data-label="Ubicación" class="dato-region">Región Metropolitana</td>
+                            <td data-label="Ubicación" class="dato-region"><span class="tag tag-rm">Región Metropolitana</span></td>
                             <td style="display:none;" class="dato-tel"><a href="https://wa.me/56990877848" target="_blank">+56 9 9087 7848</a></td>
                             <td style="display:none;" class="dato-correo"><a href="mailto:contacto@fundacioncalma.com">contacto@fundacioncalma.com</a></td>
                             <td style="display:none;" class="dato-web">-</td>
@@ -432,7 +367,7 @@
                         </tr>
                         <tr>
                             <td data-label="Nombre" class="dato-nombre">Boticario Austral Kachu Lawen</td>
-                            <td data-label="Ubicación" class="dato-region">Región Metropolitana</td>
+                            <td data-label="Ubicación" class="dato-region"><span class="tag tag-rm">Región Metropolitana</span></td>
                             <td style="display:none;" class="dato-tel"><a href="https://wa.me/56926879705" target="_blank">+56 9 2687 9705</a> / +56 9 8384 9489</td>
                             <td style="display:none;" class="dato-correo"><a href="mailto:admision.boticario@gmail.com">admision.boticario@gmail.com</a></td>
                             <td style="display:none;" class="dato-web">-</td>
@@ -440,7 +375,7 @@
                         </tr>
                         <tr>
                             <td data-label="Nombre" class="dato-nombre">Dispensario Origen</td>
-                            <td data-label="Ubicación" class="dato-region">Región Metropolitana</td>
+                            <td data-label="Ubicación" class="dato-region"><span class="tag tag-rm">Región Metropolitana</span></td>
                             <td style="display:none;" class="dato-tel"><a href="https://wa.me/56998601143" target="_blank">+56 9 9860 1143</a></td>
                             <td style="display:none;" class="dato-correo">-</td>
                             <td style="display:none;" class="dato-web">-</td>
@@ -448,7 +383,7 @@
                         </tr>
                         <tr>
                             <td data-label="Nombre" class="dato-nombre">Corporación Almannabis</td>
-                            <td data-label="Ubicación" class="dato-region">Región de la Araucanía</td>
+                            <td data-label="Ubicación" class="dato-region"><span class="tag tag-sur">Región de la Araucanía</span></td>
                             <td style="display:none;" class="dato-tel">-</td>
                             <td style="display:none;" class="dato-correo"><a href="mailto:contacto@almannabis.cl">contacto@almannabis.cl</a></td>
                             <td style="display:none;" class="dato-web">-</td>
@@ -456,7 +391,7 @@
                         </tr>
                         <tr>
                             <td data-label="Nombre" class="dato-nombre">Asociación We Moguen</td>
-                            <td data-label="Ubicación" class="dato-region">Puerto Montt, Puerto Varas, Chiloé</td>
+                            <td data-label="Ubicación" class="dato-region"><span class="tag tag-sur">Pto. Montt/Varas/Chiloé</span></td>
                             <td style="display:none;" class="dato-tel">-</td>
                             <td style="display:none;" class="dato-correo"><a href="mailto:info@wemoguen.cl">info@wemoguen.cl</a></td>
                             <td style="display:none;" class="dato-web"><a href="https://www.wemoguen.cl" target="_blank">www.wemoguen.cl</a> / @we_moguen</td>
@@ -464,7 +399,7 @@
                         </tr>
                         <tr>
                             <td data-label="Nombre" class="dato-nombre">Asociación Roots Medicinal</td>
-                            <td data-label="Ubicación" class="dato-region">Región de Aysén</td>
+                            <td data-label="Ubicación" class="dato-region"><span class="tag tag-sur">Región de Aysén</span></td>
                             <td style="display:none;" class="dato-tel">-</td>
                             <td style="display:none;" class="dato-correo"><a href="mailto:roots.dispensario@gmail.com">roots.dispensario@gmail.com</a></td>
                             <td style="display:none;" class="dato-web">-</td>
@@ -472,7 +407,7 @@
                         </tr>
                         <tr>
                             <td data-label="Nombre" class="dato-nombre">Corporación SalFlores High Club</td>
-                            <td data-label="Ubicación" class="dato-region">Región de Aysén</td>
+                            <td data-label="Ubicación" class="dato-region"><span class="tag tag-sur">Región de Aysén</span></td>
                             <td style="display:none;" class="dato-tel"><a href="https://wa.me/56966916068" target="_blank">+56 9 6691 6068</a></td>
                             <td style="display:none;" class="dato-correo"><a href="mailto:coorporacionsalfloreshighclub@gmail.com">coorporacionsalfloreshighclub@gmail.com</a></td>
                             <td style="display:none;" class="dato-web">-</td>
@@ -480,7 +415,7 @@
                         </tr>
                         <tr>
                             <td data-label="Nombre" class="dato-nombre">Asociación Entre Ríos</td>
-                            <td data-label="Ubicación" class="dato-region">Valdivia</td>
+                            <td data-label="Ubicación" class="dato-region"><span class="tag tag-sur">Valdivia</span></td>
                             <td style="display:none;" class="dato-tel"><a href="https://wa.me/56953193438" target="_blank">+56 9 5319 3438</a></td>
                             <td style="display:none;" class="dato-correo">-</td>
                             <td style="display:none;" class="dato-web"><a href="https://www.entrerios.org" target="_blank">www.entrerios.org</a> / @asociacion.entrerios</td>
@@ -488,7 +423,7 @@
                         </tr>
                         <tr>
                             <td data-label="Nombre" class="dato-nombre">Asociación Biobío</td>
-                            <td data-label="Ubicación" class="dato-region">Concepción</td>
+                            <td data-label="Ubicación" class="dato-region"><span class="tag tag-sur">Concepción</span></td>
                             <td style="display:none;" class="dato-tel"><a href="https://wa.me/56956507248" target="_blank">+56 9 5650 7248</a></td>
                             <td style="display:none;" class="dato-correo">-</td>
                             <td style="display:none;" class="dato-web"><a href="https://www.asociacionbiobio.org" target="_blank">www.asociacionbiobio.org</a> / @asociacion_biobio</td>
@@ -496,7 +431,7 @@
                         </tr>
                         <tr>
                             <td data-label="Nombre" class="dato-nombre">Es buena</td>
-                            <td data-label="Ubicación" class="dato-region">Región Metropolitana</td>
+                            <td data-label="Ubicación" class="dato-region"><span class="tag tag-rm">Región Metropolitana</span></td>
                             <td style="display:none;" class="dato-tel"><a href="https://wa.me/56966440995" target="_blank">+56 9 6644 0995</a></td>
                             <td style="display:none;" class="dato-correo">-</td>
                             <td style="display:none;" class="dato-web"><a href="https://www.esbuena.cl" target="_blank">www.esbuena.cl</a></td>
@@ -609,7 +544,8 @@
             const web = fila.querySelector('.dato-web').innerHTML;
 
             document.getElementById('modalNombre').innerHTML = nombre;
-            document.getElementById('modalRegion').innerHTML = "📍 " + region;
+            // Para que no se duplique el texto dentro del pop-up, solo copiamos el HTML de la etiqueta
+            document.getElementById('modalRegion').innerHTML = region; 
             document.getElementById('modalTel').innerHTML = tel;
             document.getElementById('modalCorreo').innerHTML = correo;
             document.getElementById('modalWeb').innerHTML = web;
